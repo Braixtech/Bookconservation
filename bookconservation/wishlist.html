@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - Book Conservation Centre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-500: #2c5530;
+            --primary-400: #5c9d5c;
+            --secondary-500: #d6ad60;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --info: #3b82f6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--gray-700);
+            background: var(--gray-50);
+            width: 1440px;
+            height: 1024px;
+            overflow: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 48px;
+            color: var(--primary-500);
+            margin-bottom: 16px;
+        }
+        
+        .header p {
+            font-size: 18px;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .filter-bar {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .search-box {
+            flex: 1;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 16px 12px 44px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-400);
+        }
+        
+        .filter-select {
+            padding: 12px 16px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            background: white;
+            font-size: 14px;
+            min-width: 160px;
+        }
+        
+        .priority-filter {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .priority-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--gray-300);
+            border-radius: 20px;
+            background: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .priority-btn.active {
+            background: var(--primary-500);
+            color: white;
+            border-color: var(--primary-500);
+        }
+        
+        .priority-btn.critical {
+            border-color: var(--error);
+            color: var(--error);
+        }
+        
+        .priority-btn.critical.active {
+            background: var(--error);
+            color: white;
+        }
+        
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        
+        .book-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+        
+        .book-header {
+            height: 120px;
+            position: relative;
+        }
+        
+        .priority-banner {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .priority-banner.critical {
+            background: var(--error);
+        }
+        
+        .priority-banner.high {
+            background: var(--warning);
+        }
+        
+        .priority-banner.medium {
+            background: var(--info);
+        }
+        
+        .priority-banner.low {
+            background: var(--gray-500);
+        }
+        
+        .book-cover {
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-300) 0%, var(--primary-400) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+        }
+        
+        .book-content {
+            padding: 20px;
+        }
+        
+        .book-title {
+            font-family: 'Merriweather', serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--gray-900);
+        }
+        
+        .book-author {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 12px;
+        }
+        
+        .book-purpose {
+            font-size: 14px;
+            color: var(--gray-700);
+            margin-bottom: 16px;
+            line-height: 20px;
+        }
+        
+        .progress-container {
+            margin-bottom: 20px;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .progress-label {
+            font-size: 12px;
+            color: var(--gray-600);
+        }
+        
+        .progress-percentage {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-500);
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: var(--gray-200);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-500) 0%, var(--primary-400) 100%);
+        }
+        
+        .book-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--gray-600);
+            margin-bottom: 20px;
+        }
+        
+        .book-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-500);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .book-btn:hover {
+            background: #244627;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-top: 48px;
+        }
+        
+        .page-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .page-btn.active {
+            background: var(--primary-500);
+            color: white;
+            border-color: var(--primary-500);
+        }
+        
+        .page-btn:hover:not(.active) {
+            background: var(--gray-50);
+        }
+        
+        .prev-next {
+            padding: 8px 16px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>Our Wishlist</h1>
+            <p>These books are urgently needed for our conservation and redistribution programs. Your donation makes a direct impact.</p>
+        </div>
+        
+        <!-- FILTER BAR -->
+        <div class="filter-bar">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" placeholder="Search for books, authors, or ISBN">
+            </div>
+            
+            <select class="filter-select">
+                <option value="">All Categories</option>
+                <option value="academic">Academic</option>
+                <option value="children">Children's</option>
+                <option value="fiction">Fiction</option>
+                <option value="non-fiction">Non-Fiction</option>
+            </select>
+            
+            <div class="priority-filter">
+                <button class="priority-btn active">All</button>
+                <button class="priority-btn critical">Critical</button>
+                <button class="priority-btn high">High</button>
+                <button class="priority-btn">Medium</button>
+                <button class="priority-btn">Low</button>
+            </div>
+            
+            <select class="filter-select">
+                <option value="">Sort by: Priority</option>
+                <option value="priority">Priority (High to Low)</option>
+                <option value="date">Date Added</option>
+                <option value="title">Title A-Z</option>
+            </select>
+        </div>
+        
+        <!-- BOOK GRID -->
+        <div class="book-grid">
+            <!-- BOOK 1 - CRITICAL -->
+            <div class="book-card">
+                <div class="book-header">
+                    <span class="priority-banner critical">🚨 CRITICAL</span>
+                    <div class="book-cover">📚</div>
+                </div>
+                <div class="book-content">
+                    <h3 class="book-title">Children's Science Encyclopedia</h3>
+                    <p class="book-author">Various Authors</p>
+                    <p class="book-purpose">Needed for rural school libraries to support STEM education in underserved communities.</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="progress-label">Progress</span>
+                            <span class="progress-percentage">40%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 40%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-stats">
+                        <span>2 of 5 received</span>
+                        <span>Urgent: Needed by Mar 2024</span>
+                    </div>
+                    
+                    <button class="book-btn">I Have This Book</button>
+                </div>
+            </div>
+            
+            <!-- BOOK 2 - HIGH -->
+            <div class="book-card">
+                <div class="book-header">
+                    <span class="priority-banner high">🔴 HIGH</span>
+                    <div class="book-cover">📖</div>
+                </div>
+                <div class="book-content">
+                    <h3 class="book-title">Calculus Textbook (Vol. 2)</h3>
+                    <p class="book-author">James Stewart</p>
+                    <p class="book-purpose">For university scholarship program supporting STEM students from low-income backgrounds.</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="progress-label">Progress</span>
+                            <span class="progress-percentage">60%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-stats">
+                        <span>6 of 10 received</span>
+                        <span>Needed by Jun 2024</span>
+                    </div>
+                    
+                    <button class="book-btn">I Have This Book</button>
+                </div>
+            </div>
+            
+            <!-- BOOK 3 - CRITICAL -->
+            <div class="book-card">
+                <div class="book-header">
+                    <span class="priority-banner critical">🚨 CRITICAL</span>
+                    <div class="book-cover">📜</div>
+                </div>
+                <div class="book-content">
+                    <h3 class="book-title">18th Century Manuscripts</h3>
+                    <p class="book-author">Historical Collection</p>
+                    <p class="book-purpose">For archival preservation and digitization project. Rare manuscripts in need of conservation.</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="progress-label">Progress</span>
+                            <span class="progress-percentage">25%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 25%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-stats">
+                        <span>1 of 4 received</span>
+                        <span>Urgent: Preservation project</span>
+                    </div>
+                    
+                    <button class="book-btn">I Have This Book</button>
+                </div>
+            </div>
+            
+            <!-- BOOK 4 - MEDIUM -->
+            <div class="book-card">
+                <div class="book-header">
+                    <span class="priority-banner medium">🔵 MEDIUM</span>
+                    <div class="book-cover">📗</div>
+                </div>
+                <div class="book-content">
+                    <h3 class="book-title">World War II History</h3>
+                    <p class="book-author">Various Historians</p>
+                    <p class="book-purpose">For community reading clubs and historical education programs in public libraries.</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="progress-label">Progress</span>
+                            <span class="progress-percentage">30%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 30%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-stats">
+                        <span>3 of 10 received</span>
+                        <span>Ongoing need</span>
+                    </div>
+                    
+                    <button class="book-btn">I Have This Book</button>
+                </div>
+            </div>
+            
+            <!-- BOOK 5 - HIGH -->
+            <div class="book-card">
+                <div class="book-header">
+                    <span class="priority-banner high">🔴 HIGH</span>
+                    <div class="book-cover">👶</div>
+                </div>
+                <div class="book-content">
+                    <h3 class="book-title">Early Childhood Readers</h3>
+                    <p class="book-author">Educational Series</p>
+                    <p class="book-purpose">For literacy programs in daycare centers and early childhood education initiatives.</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="progress-label">Progress</span>
+                            <span class="progress-percentage">45%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-stats">
+                        <span>9 of 20 received</span>
+                        <span>Needed by May 2024</span>
+                    </div>
+                    
+                    <button class="book-btn">I Have This Book</button>
+                </div>
+            </div>
+            
+            <!-- BOOK 6 - MEDIUM -->
+            <div class="book-card">
+                <div class="book-header">
+                    <span class="priority-banner medium">🔵 MEDIUM</span>
+                    <div class="book-cover">📊</div>
+                </div>
+                <div class="book-content">
+                    <h3 class="book-title">Business & Economics</h3>
+                    <p class="book-author">Recent Editions</p>
+                    <p class="book-purpose">For entrepreneurship programs and business education in community colleges.</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="progress-label">Progress</span>
+                            <span class="progress-percentage">55%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 55%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-stats">
+                        <span>11 of 20 received</span>
+                        <span>Ongoing need</span>
+                    </div>
+                    
+                    <button class="book-btn">I Have This Book</button>
+                </div>
+            </div>
+            
+            <!-- BOOK 7 - LOW -->
+            <div class="book-card">
+                <div class="book-header">
+                    <span class="priority-banner low">⚪ LOW</span>
+                    <div class="book-cover">🎨</div>
+                </div>
+                <div class="book-content">
+                    <h3 class="book-title">Art & Photography</h3>
+                    <p class="book-author">Visual Arts Collection</p>
+                    <p class="book-purpose">For art education programs and community center libraries.</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="progress-label">Progress</span>
+                            <span class="progress-percentage">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-stats">
+                        <span>7 of 10 received</span>
+                        <span>Low priority</span>
+                    </div>
+                    
+                    <button class="book-btn">I Have This Book</button>
+                </div>
+            </div>
+            
+            <!-- BOOK 8 - CRITICAL -->
+            <div class="book-card">
+                <div class="book-header">
+                    <span class="priority-banner critical">🚨 CRITICAL</span>
+                    <div class="book-cover">🌍</div>
+                </div>
+                <div class="book-content">
+                    <h3 class="book-title">Environmental Science</h3>
+                    <p class="book-author">Latest Research</p>
+                    <p class="book-purpose">For climate education programs in schools and community workshops.</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="progress-label">Progress</span>
+                            <span class="progress-percentage">20%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 20%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-stats">
+                        <span>2 of 10 received</span>
+                        <span>Urgent: Needed for spring program</span>
+                    </div>
+                    
+                    <button class="book-btn">I Have This Book</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PAGINATION -->
+        <div class="pagination">
+            <button class="prev-next">← Previous</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn">5</button>
+            <button class="prev-next">Next →</button>
+        </div>
+    </div>
+</body>
+</html>

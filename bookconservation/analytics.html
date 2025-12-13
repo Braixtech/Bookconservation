@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Admin Dashboard | Arewa Conservation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Using YOUR dashboard colors from screenshot */
+        .dashboard-container {
+            display: flex;
+            min-height: calc(100vh - 70px);
+            background: #f5f7fa;
+        }
+        
+        .dashboard-sidebar {
+            width: 250px;
+            background: #ffffff;
+            border-right: 1px solid #e0e0e0;
+            padding: 20px 0;
+        }
+        
+        .dashboard-content {
+            flex: 1;
+            padding: 30px;
+        }
+        
+        .sidebar-header {
+            padding: 0 20px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #2c3e50;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        
+        .sidebar-menu li {
+            margin: 5px 0;
+        }
+        
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            color: #34495e;
+            text-decoration: none;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+        
+        .sidebar-menu a:hover {
+            background: #f8f9fa;
+            color: #2c3e50;
+        }
+        
+        .sidebar-menu a.active {
+            background: #e8f4fd;
+            color: #2980b9;
+            border-left-color: #2980b9;
+        }
+        
+        .sidebar-menu i {
+            width: 25px;
+            margin-right: 10px;
+            color: #7f8c8d;
+        }
+        
+        .sidebar-menu a.active i {
+            color: #2980b9;
+        }
+        
+        /* Stats cards - matching YOUR style */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid #2980b9;
+        }
+        
+        .stat-card:nth-child(2) { border-left-color: #27ae60; }
+        .stat-card:nth-child(3) { border-left-color: #8e44ad; }
+        .stat-card:nth-child(4) { border-left-color: #e74c3c; }
+        
+        .stat-card h3 {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        /* Charts section */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        /* Activity feed */
+        .recent-activity {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+        }
+        
+        .activity-upload { background: #2980b9; }
+        .activity-user { background: #27ae60; }
+        .activity-download { background: #8e44ad; }
+        .activity-project { background: #e74c3c; }
+    </style>
+</head>
+<body>
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-chart-line"></i> Dashboard</h2>
+                <p style="color: #7f8c8d; font-size: 14px;">Administrator</p>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="admin-dashboard.html"><i class="fas fa-tachometer-alt"></i> Overview</a></li>
+                <li><a href="analytics.html" class="active"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                <li><a href="collections.html"><i class="fas fa-archive"></i> Collections</a></li>
+                <li><a href="digital-library.html"><i class="fas fa-book"></i> Digital Library</a></li>
+                <li><a href="conservation-projects.html"><i class="fas fa-seedling"></i> Projects</a></li>
+                <li><a href="report.html"><i class="fas fa-file-alt"></i> Reports</a></li>
+                <li><a href="security-center.html"><i class="fas fa-shield-alt"></i> Security</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <div class="dashboard-header" style="margin-bottom: 30px;">
+                <h1 style="color: #2c3e50; margin-bottom: 10px;">Analytics Dashboard</h1>
+                <p style="color: #7f8c8d;">Track platform performance and user engagement</p>
+            </div>
+
+            <!-- Stats Overview -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Visitors</h3>
+                    <div class="stat-value">12,458</div>
+                    <div style="color: #27ae60; font-size: 14px; margin-top: 5px;">
+                        <i class="fas fa-arrow-up"></i> 24.5% from last month
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <h3>Digital Collections</h3>
+                    <div class="stat-value">8,742</div>
+                    <div style="color: #27ae60; font-size: 14px; margin-top: 5px;">
+                        <i class="fas fa-arrow-up"></i> 156 new this month
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Projects</h3>
+                    <div class="stat-value">24</div>
+                    <div style="color: #27ae60; font-size: 14px; margin-top: 5px;">
+                        <i class="fas fa-arrow-up"></i> 3 new projects
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <h3>User Engagement</h3>
+                    <div class="stat-value">78%</div>
+                    <div style="color: #e74c3c; font-size: 14px; margin-top: 5px;">
+                        <i class="fas fa-arrow-down"></i> 2.4% from last month
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">Visitor Trends</h3>
+                    <canvas id="visitorChart" height="250"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">Content Distribution</h3>
+                    <canvas id="contentChart" height="250"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="recent-activity">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">Recent Activity</h3>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon activity-upload">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <div>
+                            <p style="margin: 0; font-weight: 500;">New artifact uploaded</p>
+                            <p style="margin: 5px 0 0; color: #7f8c8d; font-size: 14px;">
+                                Kano Bronze Sculpture • 2 hours ago by Fatima A.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon activity-user">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div>
+                            <p style="margin: 0; font-weight: 500;">New volunteer registered</p>
+                            <p style="margin: 5px 0 0; color: #7f8c8d; font-size: 14px;">
+                                Ahmed Musa • 5 hours ago
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon activity-download">
+                            <i class="fas fa-file-download"></i>
+                        </div>
+                        <div>
+                            <p style="margin: 0; font-weight: 500;">Research paper downloaded</p>
+                            <p style="margin: 5px 0 0; color: #7f8c8d; font-size: 14px;">
+                                156 downloads • Yesterday, 3:45 PM
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon activity-project">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div>
+                            <p style="margin: 0; font-weight: 500;">New project approved</p>
+                            <p style="margin: 5px 0 0; color: #7f8c8d; font-size: 14px;">
+                                Sokoto Manuscripts • 2 days ago by Dr. Aminu
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Visitor Trends Chart
+        const visitorCtx = document.getElementById('visitorChart').getContext('2d');
+        new Chart(visitorCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Unique Visitors',
+                    data: [6500, 7200, 8100, 8900, 9250, 12458],
+                    borderColor: '#2980b9',
+                    backgroundColor: 'rgba(41, 128, 185, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // Content Distribution Chart
+        const contentCtx = document.getElementById('contentChart').getContext('2d');
+        new Chart(contentCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Artifacts', 'Documents', 'Research', 'Media'],
+                datasets: [{
+                    data: [45, 25, 20, 10],
+                    backgroundColor: [
+                        '#2980b9',
+                        '#27ae60',
+                        '#8e44ad',
+                        '#e74c3c'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

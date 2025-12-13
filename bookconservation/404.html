@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Arewa Conservation Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .error-page {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .error-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        
+        .error-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .error-message {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        
+        .error-search {
+            max-width: 400px;
+            margin: 0 auto 3rem;
+        }
+        
+        .error-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+        
+        .error-link-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: left;
+            transition: var(--transition);
+        }
+        
+        .error-link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .error-link-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .error-link-card h4 {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .error-link-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .error-link-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .error-link-card a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-title {
+                font-size: 2rem;
+            }
+            
+            .error-actions {
+                flex-direction: column;
+            }
+            
+            .error-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fas fa-leaf"></i>
+                    <span>Arewa Conservation</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="collections.html">Collections</a></li>
+                <li><a href="digital-library.html">Digital Library</a></li>
+                <li><a href="conservation-projects.html">Projects</a></li>
+                <li><a href="research-portal.html">Research</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="register.html" class="btn-register">Register</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="error-page">
+        <div class="container">
+            <div class="error-content">
+                <div class="error-code">404</div>
+                <h1 class="error-title">Page Not Found</h1>
+                <p class="error-message">
+                    The page you are looking for might have been removed, had its name changed, 
+                    or is temporarily unavailable. Let's get you back on track.
+                </p>
+                
+                <div class="error-search">
+                    <div class="search-bar">
+                        <input type="text" id="errorSearch" placeholder="Search for pages, resources, or content...">
+                        <button id="errorSearchBtn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                
+                <div class="error-actions">
+                    <a href="index.html" class="btn-primary">
+                        <i class="fas fa-home"></i> Back to Homepage
+                    </a>
+                    <a href="javascript:history.back()" class="btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Go Back
+                    </a>
+                    <a href="contact.html" class="btn-outline">
+                        <i class="fas fa-headset"></i> Contact Support
+                    </a>
+                </div>
+                
+                <div class="error-links">
+                    <div class="error-link-card">
+                        <i class="fas fa-book"></i>
+                        <h4>Digital Library</h4>
+                        <p>Explore our collection of digital heritage resources</p>
+                        <a href="digital-library.html">
+                            Visit Library <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="error-link-card">
+                        <i class="fas fa-project-diagram"></i>
+                        <h4>Conservation Projects</h4>
+                        <p>Discover our active conservation initiatives</p>
+                        <a href="conservation-projects.html">
+                            View Projects <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="error-link-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>Research Portal</h4>
+                        <p>Access research materials and publications</p>
+                        <a href="research-portal.html">
+                            Visit Portal <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="error-link-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Volunteer Opportunities</h4>
+                        <p>Join our community of conservation volunteers</p>
+                        <a href="volunteer.html">
+                            Volunteer Now <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Arewa Conservation</h3>
+                <p>Preserving Northern Nigeria's cultural and natural heritage through innovation and community engagement.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="digital-library.html">Digital Library</a></li>
+                    <li><a href="conservation-projects.html">Projects</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="research-portal.html">Research Portal</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Kaduna, Nigeria</p>
+                <p><i class="fas fa-envelope"></i> info@arewaconservation.org</p>
+                <p><i class="fas fa-phone"></i> +234 800 123 4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Arewa Conservation Platform. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="security-center.html">Security Center</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle search
+            const searchInput = document.getElementById('errorSearch');
+            const searchBtn = document.getElementById('errorSearchBtn');
+            
+            searchBtn.addEventListener('click', function() {
+                performSearch();
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+            
+            function performSearch() {
+                const query = searchInput.value.trim();
+                if (query) {
+                    // Store search query and redirect to search results or collections page
+                    sessionStorage.setItem('searchQuery', query);
+                    window.location.href = 'collections.html';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

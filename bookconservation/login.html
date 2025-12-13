@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Arewa Conservation Platform</title>
+    <meta name="description" content="Secure login to Arewa Conservation Platform">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net; img-src 'self' data: https:;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <!-- Security Badge -->
+    <div class="security-badge">
+        <i class="bi bi-shield-check"></i>
+        <span>Secure Login</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="bi bi-house-door"></i>
+                <span>Arewa Conservation</span>
+            </div>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+                <li><a href="about.html"><i class="bi bi-info-circle"></i> About</a></li>
+                <li><a href="register.html"><i class="bi bi-person-plus"></i> Register</a></li>
+                <li><a href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+            </ul>
+            
+            <div class="user-menu">
+                <a href="register.html" class="btn btn-outline btn-sm">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Section -->
+    <section class="hero" style="min-height: calc(100vh - 60px); padding: 8rem 0 4rem; margin-top: 60px;">
+        <div class="container">
+            <div class="card mx-auto" style="max-width: 400px;">
+                <div class="card-header text-center">
+                    <h3 class="card-title"><i class="bi bi-box-arrow-in-right"></i> Secure Login</h3>
+                    <p class="text-muted">Access your Arewa Conservation account</p>
+                </div>
+                
+                <div class="card-body">
+                    <!-- Security Notice -->
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle"></i>
+                        <strong>Security Notice:</strong> Always check for HTTPS and verify the domain before logging in.
+                    </div>
+                    
+                    <!-- Login Form -->
+                    <form id="loginForm" onsubmit="return handleLogin(event)">
+                        <!-- Honeypot field for bots -->
+                        <input type="text" name="website" style="display: none;" aria-hidden="true">
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required 
+                                   placeholder="your.email@example.com"
+                                   autocomplete="email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="position-relative">
+                                <input type="password" id="password" name="password" class="form-control" required
+                                       placeholder="Enter your password"
+                                       autocomplete="current-password"
+                                       minlength="8">
+                                <button type="button" class="btn btn-sm position-absolute" 
+                                        style="right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none;"
+                                        onclick="togglePassword()">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                            <small class="text-muted">Minimum 8 characters with uppercase, lowercase, number, and special character</small>
+                        </div>
+                        
+                        <div class="form-check mb-4">
+                            <input type="checkbox" id="remember" name="remember" class="form-check-input">
+                            <label for="remember" class="form-check-label">Remember me on this device</label>
+                        </div>
+                        
+                        <!-- CAPTCHA Placeholder -->
+                        <div class="mb-4 text-center">
+                            <div style="background: var(--gray-200); padding: 1rem; border-radius: var(--radius-md);">
+                                <i class="bi bi-shield"></i>
+                                <span class="text-muted">Security verification would appear here</span>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100 mb-3">
+                            <i class="bi bi-box-arrow-in-right"></i> Login to Account
+                        </button>
+                        
+                        <div class="text-center">
+                            <a href="forgot-password.html" class="text-primary">Forgot your password?</a>
+                        </div>
+                    </form>
+                    
+                    <hr class="my-4">
+                    
+                    <div class="text-center">
+                        <p class="text-muted">Don't have an account?</p>
+                        <a href="register.html" class="btn btn-outline w-100">
+                            <i class="bi bi-person-plus"></i> Create New Account
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card-footer text-center">
+                    <small class="text-muted">
+                        <i class="bi bi-shield-check"></i> Your login is secured with encryption
+                    </small>
+                </div>
+            </div>
+            
+            <!-- Security Tips -->
+            <div class="card mt-4 mx-auto" style="max-width: 400px;">
+                <div class="card-header">
+                    <h6 class="card-title mb-0"><i class="bi bi-shield-check"></i> Security Tips</h6>
+                </div>
+                <div class="card-body">
+                    <ul class="text-small">
+                        <li>Never share your login credentials</li>
+                        <li>Always log out from public computers</li>
+                        <li>Use strong, unique passwords</li>
+                        <li>Enable Two-Factor Authentication if available</li>
+                        <li>Verify the website URL before logging in</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom text-center">
+                <p>&copy; 2024 Arewa Conservation Platform. All rights reserved.</p>
+                <p class="text-small text-muted">
+                    <i class="bi bi-shield-check"></i> Secure Authentication System | 
+                    <a href="privacy.html" class="text-muted">Privacy Policy</a> | 
+                    <a href="terms.html" class="text-muted">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/security.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('show');
+        });
+
+        // Password visibility toggle
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleButton = document.querySelector('[onclick="togglePassword()"] i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleButton.classList.remove('bi-eye');
+                toggleButton.classList.add('bi-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleButton.classList.remove('bi-eye-slash');
+                toggleButton.classList.add('bi-eye');
+            }
+        }
+
+        // Login form handling
+        let loginAttempts = 0;
+        const maxAttempts = 5;
+        
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            // Check for brute force attempts
+            if (loginAttempts >= maxAttempts) {
+                alert('Too many login attempts. Please try again in 15 minutes.');
+                return false;
+            }
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            const email = formData.get('email');
+            const password = formData.get('password');
+            
+            // Honeypot check
+            if (formData.get('website')) {
+                console.log('Bot detected via honeypot');
+                return false;
+            }
+            
+            // Basic validation
+            if (!isValidEmail(email)) {
+                alert('Please enter a valid email address');
+                return false;
+            }
+            
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long');
+                return false;
+            }
+            
+            // Simulate login process
+            loginAttempts++;
+            console.log(`Login attempt ${loginAttempts} for: ${email}`);
+            
+            // Show loading state
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="bi bi-hourglass-split"></i> Authenticating...';
+            submitButton.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // For demo purposes, redirect to dashboard
+                // In real implementation, validate credentials
+                if (email && password) {
+                    // Store session
+                    sessionStorage.setItem('userAuthenticated', 'true');
+                    sessionStorage.setItem('userEmail', email);
+                    sessionStorage.setItem('loginTime', new Date().toISOString());
+                    
+                    // Redirect based on user type (simulated)
+                    if (email.includes('admin')) {
+                        window.location.href = 'admin-dashboard.html';
+                    } else if (email.includes('researcher')) {
+                        window.location.href = 'research-portal.html';
+                    } else if (email.includes('conservator')) {
+                        window.location.href = 'conservation-projects.html';
+                    } else if (email.includes('volunteer')) {
+                        window.location.href = 'volunteer.html';
+                    } else {
+                        window.location.href = 'profile.html';
+                    }
+                } else {
+                    alert('Invalid credentials. Please try again.');
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                }
+            }, 1500);
+            
+            return false;
+        }
+        
+        function isValidEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        // Security checks
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if already logged in
+            if (sessionStorage.getItem('userAuthenticated') === 'true') {
+                const loginTime = new Date(sessionStorage.getItem('loginTime'));
+                const now = new Date();
+                const hoursDiff = Math.abs(now - loginTime) / 36e5;
+                
+                if (hoursDiff < 24) {
+                    // Redirect to appropriate dashboard
+                    const userEmail = sessionStorage.getItem('userEmail');
+                    if (userEmail && !window.location.href.includes('login.html')) {
+                        // Already on a page, no redirect needed
+                    } else {
+                        window.location.href = 'profile.html';
+                    }
+                } else {
+                    // Session expired
+                    sessionStorage.clear();
+                }
+            }
+            
+            // Check for secure connection
+            if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+                console.warn('Insecure connection detected. For better security, use HTTPS.');
+            }
+        });
+    </script>
+</body>
+</html>

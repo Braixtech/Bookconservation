@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections - Arewa Conservation Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fas fa-leaf"></i>
+                    <span>Arewa Conservation</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="collections.html" class="active">Collections</a></li>
+                <li><a href="digital-library.html">Digital Library</a></li>
+                <li><a href="conservation-projects.html">Projects</a></li>
+                <li><a href="research-portal.html">Research</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="register.html" class="btn-register">Register</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="collections-page">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Cultural Collections</h1>
+                <p>Explore our curated collections of Northern Nigeria's cultural heritage</p>
+                <div class="search-bar">
+                    <input type="text" id="collectionSearch" placeholder="Search artifacts, documents, artworks...">
+                    <button id="collectionSearchBtn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collections Stats -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-landmark"></i>
+                        <h3>5,000+</h3>
+                        <p>Artifacts</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-scroll"></i>
+                        <h3>2,500+</h3>
+                        <p>Historical Documents</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-palette"></i>
+                        <h3>1,200+</h3>
+                        <p>Artworks</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-tshirt"></i>
+                        <h3>800+</h3>
+                        <p>Textiles</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collection Categories -->
+        <section class="categories-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Collection Categories</h2>
+                    <p>Browse our heritage collections by category</p>
+                </div>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Traditional Crafts</h3>
+                        <p>Pottery, weaving, metalwork, and other traditional crafts</p>
+                        <a href="#crafts" class="btn-view">View Collection</a>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-image">
+                            <i class="fas fa-book-quran"></i>
+                        </div>
+                        <h3>Islamic Heritage</h3>
+                        <p>Manuscripts, calligraphy, and Islamic art</p>
+                        <a href="#islamic" class="btn-view">View Collection</a>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-image">
+                            <i class="fas fa-archway"></i>
+                        </div>
+                        <h3>Architecture</h3>
+                        <p>Traditional architecture and building techniques</p>
+                        <a href="#architecture" class="btn-view">View Collection</a>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-image">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Performing Arts</h3>
+                        <p>Musical instruments, costumes, and performance artifacts</p>
+                        <a href="#performing-arts" class="btn-view">View Collection</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Collections -->
+        <section class="featured-collections">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Collections</h2>
+                    <p>Highlighted heritage collections</p>
+                </div>
+                <div class="collections-grid">
+                    <div class="collection-card large">
+                        <div class="collection-image">
+                            <div class="collection-overlay">
+                                <h3>Hausa Traditional Textiles</h3>
+                                <p>Collection of traditional fabrics, weaving techniques, and patterns</p>
+                                <a href="collection-details.html" class="btn-explore">Explore Collection</a>
+                            </div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Hausa Traditional Textiles</h3>
+                            <div class="collection-stats">
+                                <span><i class="fas fa-image"></i> 250 Items</span>
+                                <span><i class="fas fa-eye"></i> 1,245 Views</span>
+                                <span><i class="fas fa-calendar"></i> Updated: Dec 2023</span>
+                            </div>
+                            <p class="collection-desc">Traditional textiles including aso oke, kente, and adire fabrics with documentation of weaving techniques and cultural significance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="collections-grid-small">
+                        <div class="collection-card">
+                            <div class="collection-image">
+                                <i class="fas fa-drum"></i>
+                            </div>
+                            <div class="collection-info">
+                                <h3>Traditional Musical Instruments</h3>
+                                <p>Collection of drums, string instruments, and wind instruments</p>
+                                <div class="collection-meta">
+                                    <span>85 Items</span>
+                                    <a href="collection-details.html" class="btn-view">View</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collection-card">
+                            <div class="collection-image">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <div class="collection-info">
+                                <h3>Royal Regalia</h3>
+                                <p>Crowns, staffs, and ceremonial objects from Northern kingdoms</p>
+                                <div class="collection-meta">
+                                    <span>42 Items</span>
+                                    <a href="collection-details.html" class="btn-view">View</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collection-card">
+                            <div class="collection-image">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="collection-info">
+                                <h3>Historical Manuscripts</h3>
+                                <p>Pre-colonial and colonial era documents and writings</p>
+                                <div class="collection-meta">
+                                    <span>320 Items</span>
+                                    <a href="collection-details.html" class="btn-view">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Additions -->
+        <section class="recent-additions">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Recent Additions</h2>
+                    <p>Recently added items to our collections</p>
+                </div>
+                <div class="additions-grid">
+                    <div class="addition-card">
+                        <div class="addition-image">
+                            <img src="images/artifact1.jpg" alt="Ancient Pottery">
+                            <span class="addition-date">Added: 2 days ago</span>
+                        </div>
+                        <div class="addition-info">
+                            <h3>Ancient Terracotta Pottery</h3>
+                            <p class="addition-location"><i class="fas fa-map-marker-alt"></i> Nok Valley</p>
+                            <p class="addition-desc">Terracotta sculpture dating back to 500 BCE from the Nok culture</p>
+                            <div class="addition-meta">
+                                <span><i class="fas fa-history"></i> 500 BCE</span>
+                                <span><i class="fas fa-tag"></i> Archaeology</span>
+                            </div>
+                            <a href="item-details.html" class="btn-view-details">View Details</a>
+                        </div>
+                    </div>
+                    <div class="addition-card">
+                        <div class="addition-image">
+                            <img src="images/artifact2.jpg" alt="Kano Gates">
+                            <span class="addition-date">Added: 1 week ago</span>
+                        </div>
+                        <div class="addition-info">
+                            <h3>Kano City Gates Artwork</h3>
+                            <p class="addition-location"><i class="fas fa-map-marker-alt"></i> Kano State</p>
+                            <p class="addition-desc">Traditional artwork depicting the ancient gates of Kano city</p>
+                            <div class="addition-meta">
+                                <span><i class="fas fa-history"></i> 19th Century</span>
+                                <span><i class="fas fa-tag"></i> Traditional Art</span>
+                            </div>
+                            <a href="item-details.html" class="btn-view-details">View Details</a>
+                        </div>
+                    </div>
+                    <div class="addition-card">
+                        <div class="addition-image">
+                            <img src="images/artifact3.jpg" alt="Fulani Jewelry">
+                            <span class="addition-date">Added: 2 weeks ago</span>
+                        </div>
+                        <div class="addition-info">
+                            <h3>Fulani Traditional Jewelry</h3>
+                            <p class="addition-location"><i class="fas fa-map-marker-alt"></i> Northern Nigeria</p>
+                            <p class="addition-desc">Collection of traditional Fulani jewelry and adornments</p>
+                            <div class="addition-meta">
+                                <span><i class="fas fa-history"></i> 20th Century</span>
+                                <span><i class="fas fa-tag"></i> Jewelry</span>
+                            </div>
+                            <a href="item-details.html" class="btn-view-details">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collection Map -->
+        <section class="collection-map">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Geographic Distribution</h2>
+                    <p>Collections by region across Northern Nigeria</p>
+                </div>
+                <div class="map-visualization">
+                    <div class="map-container">
+                        <div class="map-region" data-region="kano" style="top: 30%; left: 40%;">
+                            <div class="region-dot"></div>
+                            <div class="region-info">
+                                <h4>Kano</h4>
+                                <p>1,250 Items</p>
+                            </div>
+                        </div>
+                        <div class="map-region" data-region="kaduna" style="top: 45%; left: 35%;">
+                            <div class="region-dot"></div>
+                            <div class="region-info">
+                                <h4>Kaduna</h4>
+                                <p>890 Items</p>
+                            </div>
+                        </div>
+                        <div class="map-region" data-region="sokoto" style="top: 20%; left: 20%;">
+                            <div class="region-dot"></div>
+                            <div class="region-info">
+                                <h4>Sokoto</h4>
+                                <p>1,050 Items</p>
+                            </div>
+                        </div>
+                        <div class="map-region" data-region="borno" style="top: 25%; left: 60%;">
+                            <div class="region-dot"></div>
+                            <div class="region-info">
+                                <h4>Borno</h4>
+                                <p>750 Items</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-legend">
+                        <h3>Collections by Region</h3>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #4CAF50;"></span>
+                                <span>Kano: 1,250 items</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #2196F3;"></span>
+                                <span>Sokoto: 1,050 items</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #FF9800;"></span>
+                                <span>Kaduna: 890 items</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #9C27B0;"></span>
+                                <span>Borno: 750 items</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline View -->
+        <section class="timeline-view">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Historical Timeline</h2>
+                    <p>Collections organized by historical period</p>
+                </div>
+                <div class="timeline-container">
+                    <div class="timeline">
+                        <div class="timeline-item" data-year="500 BCE">
+                            <div class="timeline-content">
+                                <h3>Nok Culture</h3>
+                                <p>Terracotta sculptures and iron works</p>
+                                <span class="item-count">45 Items</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="900 CE">
+                            <div class="timeline-content">
+                                <h3>Early Hausa States</h3>
+                                <p>Early settlement artifacts</p>
+                                <span class="item-count">120 Items</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="1800">
+                            <div class="timeline-content">
+                                <h3>Sokoto Caliphate</h3>
+                                <p>Islamic manuscripts and artifacts</p>
+                                <span class="item-count">850 Items</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="1900">
+                            <div class="timeline-content">
+                                <h3>Colonial Era</h3>
+                                <p>Photographs and documents</p>
+                                <span class="item-count">620 Items</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="1960">
+                            <div class="timeline-content">
+                                <h3>Post-Independence</h3>
+                                <p>Modern cultural expressions</p>
+                                <span class="item-count">450 Items</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contribute Section -->
+        <section class="contribute-section">
+            <div class="container">
+                <div class="contribute-container">
+                    <div class="contribute-content">
+                        <h2>Contribute to Our Collections</h2>
+                        <p>Help us preserve Northern Nigeria's heritage by contributing items to our collections</p>
+                        <div class="contribute-options">
+                            <div class="contribute-option">
+                                <i class="fas fa-camera"></i>
+                                <h3>Document Artifacts</h3>
+                                <p>Photograph and document heritage items in your community</p>
+                            </div>
+                            <div class="contribute-option">
+                                <i class="fas fa-share-alt"></i>
+                                <h3>Share Knowledge</h3>
+                                <p>Share information about cultural practices and traditions</p>
+                            </div>
+                            <div class="contribute-option">
+                                <i class="fas fa-hands-helping"></i>
+                                <h3>Donate Items</h3>
+                                <p>Donate historical items for preservation and study</p>
+                            </div>
+                        </div>
+                        <a href="contribute.html" class="btn-primary">Learn How to Contribute</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Arewa Conservation</h3>
+                <p>Preserving Northern Nigeria's cultural and natural heritage through innovation and community engagement.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="digital-library.html">Digital Library</a></li>
+                    <li><a href="conservation-projects.html">Projects</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Collection Resources</h4>
+                <ul>
+                    <li><a href="collections.html">Browse Collections</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="timeline.html">Historical Timeline</a></li>
+                    <li><a href="map.html">Geographic Map</a></li>
+                    <li><a href="contribute.html">Contribute</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Collections Team</h4>
+                <p><i class="fas fa-envelope"></i> collections@arewaconservation.org</p>
+                <p><i class="fas fa-phone"></i> +234 800 123 4567 ext. 4</p>
+                <p><i class="fas fa-clock"></i> Mon-Fri: 9am-5pm</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Arewa Conservation Platform. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="security-center.html">Security Center</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Collection Filter Modal -->
+    <div class="modal" id="filterModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Filter Collections</h3>
+            <div class="filter-options">
+                <div class="filter-group">
+                    <h4>Time Period</h4>
+                    <div class="filter-checkboxes">
+                        <label>
+                            <input type="checkbox" name="period" value="precolonial"> Pre-colonial
+                        </label>
+                        <label>
+                            <input type="checkbox" name="period" value="colonial"> Colonial
+                        </label>
+                        <label>
+                            <input type="checkbox" name="period" value="postcolonial"> Post-colonial
+                        </label>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <h4>Region</h4>
+                    <select multiple id="regionFilter">
+                        <option value="kano">Kano</option>
+                        <option value="kaduna">Kaduna</option>
+                        <option value="sokoto">Sokoto</option>
+                        <option value="borno">Borno</option>
+                        <option value="katsina">Katsina</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <h4>Material Type</h4>
+                    <div class="filter-checkboxes">
+                        <label><input type="checkbox" value="textile"> Textile</label>
+                        <label><input type="checkbox" value="ceramic"> Ceramic</label>
+                        <label><input type="checkbox" value="metal"> Metal</label>
+                        <label><input type="checkbox" value="wood"> Wood</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-primary" id="applyFilters">Apply Filters</button>
+                <button class="btn-secondary" id="clearFilters">Clear All</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/collections.js"></script>
+</body>
+</html>
