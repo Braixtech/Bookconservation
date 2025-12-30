@@ -1,0 +1,523 @@
+/* Responsive Styles for Arewa Conservation Platform */
+
+/* Base Responsive Settings */
+/* ====== MOBILE NAVIGATION ====== */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 var(--space-3);
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        padding: var(--space-4);
+        box-shadow: var(--shadow-md);
+        gap: var(--space-2);
+        z-index: 1000;
+    }
+    
+    .nav-links.show {
+        display: flex;
+    }
+    
+    .nav-links li {
+        width: 100%;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: var(--space-3) var(--space-4);
+        width: 100%;
+    }
+    
+    .user-profile span {
+        display: none;
+    }
+    
+    .user-profile i.fa-chevron-down {
+        display: none;
+    }
+    
+    main {
+        margin-top: 70px;
+    }
+}
+    
+    .auth-buttons {
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+    
+    /* Hero Section */
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    /* Grid Layouts */
+    .stats-grid,
+    .categories-grid,
+    .features-grid,
+    .team-grid,
+    .partners-grid,
+    .projects-grid,
+    .research-grid,
+    .tools-grid,
+    .funding-grid,
+    .collections-grid,
+    .opportunities-grid,
+    .testimonials-grid,
+    .benefits-grid,
+    .compliance-grid,
+    .emergency-grid,
+    .contact-grid,
+    .departments-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    /* Profile Layout */
+    .profile-layout {
+        flex-direction: column;
+    }
+    
+    .profile-sidebar {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    
+    .profile-main {
+        width: 100%;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    /* Base Styles */
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Navigation */
+    .logo span {
+        font-size: 1rem;
+    }
+    
+    .auth-buttons {
+        display: none;
+    }
+    
+    .mobile-auth {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+    
+    /* Hero Section */
+    .hero-content h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Cards and Grids */
+    .stats-grid,
+    .categories-grid,
+    .features-grid,
+    .team-grid,
+    .partners-grid,
+    .projects-grid,
+    .research-grid,
+    .tools-grid,
+    .funding-grid,
+    .collections-grid,
+    .opportunities-grid,
+    .testimonials-grid,
+    .benefits-grid,
+    .compliance-grid,
+    .emergency-grid,
+    .contact-grid,
+    .departments-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    /* Forms */
+    .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .form-row .form-group {
+        width: 100%;
+    }
+    
+    /* Search Bar */
+    .search-bar {
+        width: 100%;
+    }
+    
+    /* Filter Sections */
+    .filter-options,
+    .opportunity-filters {
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+    }
+    
+    .filter-options::-webkit-scrollbar,
+    .opportunity-filters::-webkit-scrollbar {
+        height: 4px;
+    }
+    
+    /* Project Cards */
+    .project-card {
+        flex-direction: column;
+    }
+    
+    .project-image {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .project-info {
+        width: 100%;
+    }
+    
+    /* Profile Header */
+    .profile-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .profile-stats {
+        justify-content: center;
+    }
+    
+    .profile-actions {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Overview Grid */
+    .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    /* Timeline */
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        padding-left: 50px;
+    }
+    
+    .timeline-date {
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: none;
+        margin-bottom: 0.5rem;
+        text-align: left;
+    }
+    
+    /* Modals */
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 1.5rem;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .footer-section ul {
+        display: inline-block;
+        text-align: left;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+    /* Base Styles */
+    .container {
+        padding: 0 1rem;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    /* Navigation */
+    .logo span {
+        font-size: 0.9rem;
+    }
+    
+    .menu-toggle {
+        font-size: 1.2rem;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Cards */
+    .card {
+        padding: 1rem;
+    }
+    
+    /* Stats */
+    .stat-card h3 {
+        font-size: 1.8rem;
+    }
+    
+    /* Pagination */
+    .pagination {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    /* Upload Options */
+    .upload-options {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .upload-btn {
+        width: 100%;
+    }
+    
+    /* Registration Steps */
+    .registration-steps .step {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .step-number {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+    
+    /* Error Page */
+    .error-code {
+        font-size: 5rem;
+    }
+    
+    .error-title {
+        font-size: 1.5rem;
+    }
+    
+    /* Map Section */
+    .map-container {
+        flex-direction: column;
+    }
+    
+    .map-placeholder,
+    .map-info {
+        width: 100%;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar,
+    .hero-section,
+    .cta-section,
+    footer,
+    .btn,
+    .menu-toggle,
+    .auth-buttons {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+    
+    h1, h2, h3, h4 {
+        color: #000;
+        page-break-after: avoid;
+    }
+    
+    .card, .section {
+        page-break-inside: avoid;
+        border: 1px solid #ddd;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    img {
+        max-width: 100% !important;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0000ff;
+        --secondary-color: #008000;
+        --accent-color: #ff0000;
+        --text-dark: #000000;
+        --text-light: #333333;
+        --bg-color: #ffffff;
+        --card-bg: #f0f0f0;
+    }
+    
+    .btn-primary {
+        border: 2px solid #000000;
+    }
+    
+    .btn-secondary {
+        border: 2px solid #000000;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #1a1a1a;
+        --card-bg: #2d2d2d;
+        --text-dark: #ffffff;
+        --text-light: #cccccc;
+        --border-color: #404040;
+    }
+    
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-light);
+    }
+    
+    .navbar {
+        background: rgba(45, 45, 45, 0.95);
+    }
+    
+    .card,
+    .project-card,
+    .research-card,
+    .opportunity-card,
+    .testimonial-card {
+        background: var(--card-bg);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .modal-content {
+        background: var(--card-bg);
+    }
+}
+
+/* Landscape Orientation for Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 60vh;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .nav-links {
+        padding-top: 1rem;
+    }
+    
+    .nav-links li {
+        margin: 0.2rem 0;
+    }
+}
+
+/* Large Desktop Screens */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1500px;
+    }
+    
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.5rem;
+    }
+}

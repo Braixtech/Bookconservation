@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Portal - Arewa Conservation Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+     <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>Arewa Conservation</span>
+            </div>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="collections.html">Collections</a></li>
+                <li><a href="digital-library.html">Digital Library</a></li>
+                <li><a href="research-portal.html">Research</a></li>
+                <li><a href="conservation-projects.html">Conservation</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+            </ul>
+            
+            <div class="user-menu">
+                <div class="user-profile">
+                    <img src="images/avatar-placeholder.jpg" alt="Guest" class="profile-pic">
+                    <span>Guest</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="profile-dropdown">
+                        <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+                        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="research-portal-page">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Research Portal</h1>
+                <p>Access research resources, publications, and collaborative tools for conservation studies</p>
+                <div class="search-bar">
+                    <input type="text" id="researchSearch" placeholder="Search research papers, datasets, publications...">
+                    <button id="researchSearchBtn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Stats -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>1,200+</h3>
+                        <p>Research Papers</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-database"></i>
+                        <h3>85</h3>
+                        <p>Datasets</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-user-graduate"></i>
+                        <h3>450+</h3>
+                        <p>Researchers</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-university"></i>
+                        <h3>35</h3>
+                        <p>Partner Institutions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Categories -->
+        <section class="categories-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Research Categories</h2>
+                    <p>Explore research by thematic areas</p>
+                </div>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3>Historical Studies</h3>
+                        <p>Archaeology, oral history, and historical documentation</p>
+                        <a href="#" class="btn-view">Browse</a>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Biodiversity</h3>
+                        <p>Wildlife conservation, ecosystem studies, climate change</p>
+                        <a href="#" class="btn-view">Browse</a>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Social Anthropology</h3>
+                        <p>Cultural practices, indigenous knowledge, community studies</p>
+                        <a href="#" class="btn-view">Browse</a>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Digital Heritage</h3>
+                        <p>Digital preservation, 3D modeling, virtual museums</p>
+                        <a href="#" class="btn-view">Browse</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Research -->
+        <section class="featured-research">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Research</h2>
+                    <p>Recently published and significant studies</p>
+                </div>
+                <div class="research-grid">
+                    <div class="research-card">
+                        <div class="research-header">
+                            <span class="research-type">Journal Article</span>
+                            <span class="research-date">2023</span>
+                        </div>
+                        <h3>Conservation Strategies for Sokoto Manuscripts</h3>
+                        <p class="research-authors">Amina Bello, Dr. Tunde Abdullahi</p>
+                        <p class="research-abstract">Analysis of preservation techniques for Islamic manuscripts in arid climates...</p>
+                        <div class="research-meta">
+                            <span><i class="fas fa-eye"></i> 245</span>
+                            <span><i class="fas fa-download"></i> 89</span>
+                            <span><i class="fas fa-quote-right"></i> 12</span>
+                        </div>
+                        <a href="#" class="btn-read">Read Paper</a>
+                    </div>
+                    <div class="research-card">
+                        <div class="research-header">
+                            <span class="research-type">Conference Paper</span>
+                            <span class="research-date">2023</span>
+                        </div>
+                        <h3>Digital Documentation of Hausa Architecture</h3>
+                        <p class="research-authors">Prof. Ibrahim Musa, Fatima Sani</p>
+                        <p class="research-abstract">3D scanning and virtual reconstruction of traditional Hausa architecture...</p>
+                        <div class="research-meta">
+                            <span><i class="fas fa-eye"></i> 189</span>
+                            <span><i class="fas fa-download"></i> 67</span>
+                            <span><i class="fas fa-quote-right"></i> 8</span>
+                        </div>
+                        <a href="#" class="btn-read">Read Paper</a>
+                    </div>
+                    <div class="research-card">
+                        <div class="research-header">
+                            <span class="research-type">Dataset</span>
+                            <span class="research-date">2023</span>
+                        </div>
+                        <h3>Chad Basin Bird Migration Patterns</h3>
+                        <p class="research-authors">Conservation Biology Team</p>
+                        <p class="research-abstract">Five-year dataset tracking migratory bird patterns in the Chad Basin region...</p>
+                        <div class="research-meta">
+                            <span><i class="fas fa-eye"></i> 312</span>
+                            <span><i class="fas fa-download"></i> 124</span>
+                            <span><i class="fas fa-quote-right"></i> 15</span>
+                        </div>
+                        <a href="#" class="btn-read">Access Dataset</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Tools -->
+        <section class="tools-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Research Tools</h2>
+                    <p>Digital tools and resources for researchers</p>
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Data Repository</h3>
+                        <p>Access and contribute to open research datasets</p>
+                        <a href="#" class="btn-tool">Access</a>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Analytics Dashboard</h3>
+                        <p>Visualize and analyze conservation data</p>
+                        <a href="#" class="btn-tool">Explore</a>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Collaboration Space</h3>
+                        <p>Connect with other researchers and form teams</p>
+                        <a href="#" class="btn-tool">Connect</a>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <h3>Publication Portal</h3>
+                        <p>Submit research papers and datasets for publication</p>
+                        <a href="#" class="btn-tool">Submit</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Guidelines -->
+        <section class="guidelines-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Research Guidelines</h2>
+                    <p>Protocols and ethical guidelines for conservation research</p>
+                </div>
+                <div class="guidelines-content">
+                    <div class="guideline-item">
+                        <h3><i class="fas fa-handshake"></i> Community Engagement</h3>
+                        <p>All research involving local communities must follow our community engagement protocols, ensuring informed consent and benefit sharing.</p>
+                    </div>
+                    <div class="guideline-item">
+                        <h3><i class="fas fa-balance-scale"></i> Ethical Standards</h3>
+                        <p>Research must adhere to international ethical standards for cultural heritage and biodiversity conservation.</p>
+                    </div>
+                    <div class="guideline-item">
+                        <h3><i class="fas fa-share-alt"></i> Data Sharing</h3>
+                        <p>Researchers are encouraged to share non-sensitive data through our open-access repository.</p>
+                    </div>
+                    <div class="guideline-item">
+                        <h3><i class="fas fa-copyright"></i> Publication Rights</h3>
+                        <p>Guidelines for publication rights, acknowledgments, and citation of research materials.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Researcher Registration -->
+        <section class="registration-section">
+            <div class="container">
+                <div class="registration-container">
+                    <div class="registration-content">
+                        <h2>Become a Registered Researcher</h2>
+                        <p>Gain access to exclusive research materials, collaboration opportunities, and publication support.</p>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-check"></i> Access to restricted datasets</li>
+                            <li><i class="fas fa-check"></i> Research collaboration matching</li>
+                            <li><i class="fas fa-check"></i> Publication support services</li>
+                            <li><i class="fas fa-check"></i> Grant and funding information</li>
+                            <li><i class="fas fa-check"></i> Conference and workshop invitations</li>
+                        </ul>
+                        <div class="registration-buttons">
+                            <a href="register.html?type=researcher" class="btn-primary">Register as Researcher</a>
+                            <a href="login.html" class="btn-secondary">Researcher Login</a>
+                        </div>
+                    </div>
+                    <div class="registration-image">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Arewa Conservation</h3>
+                <p>Preserving Northern Nigeria's cultural and natural heritage through innovation and community engagement.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="digital-library.html">Digital Library</a></li>
+                    <li><a href="conservation-projects.html">Projects</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Research Resources</h4>
+                <ul>
+                    <li><a href="research-portal.html">Research Portal</a></li>
+                    <li><a href="datasets.html">Datasets</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="ethics.html">Ethical Guidelines</a></li>
+                    <li><a href="grants.html">Research Grants</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Research Team</h4>
+                <p><i class="fas fa-envelope"></i> research@arewaconservation.org</p>
+                <p><i class="fas fa-phone"></i> +234 800 123 4567 ext. 2</p>
+                <p><i class="fas fa-clock"></i> Mon-Fri: 9am-5pm</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Arewa Conservation Platform. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="security-center.html">Security Center</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/research.js"></script>
+</body>
+</html>

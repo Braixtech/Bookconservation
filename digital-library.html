@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Library - Arewa Conservation Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+     <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>Arewa Conservation</span>
+            </div>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="collections.html">Collections</a></li>
+                <li><a href="digital-library.html">Digital Library</a></li>
+                <li><a href="research-portal.html">Research</a></li>
+                <li><a href="conservation-projects.html">Conservation</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+            </ul>
+            
+            <div class="user-menu">
+                <div class="user-profile">
+                    <img src="images/avatar-placeholder.jpg" alt="Guest" class="profile-pic">
+                    <span>Guest</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="profile-dropdown">
+                        <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+                        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="digital-library-page">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Digital Library</h1>
+                <p>Explore our extensive collection of digitized heritage resources</p>
+                <div class="search-bar">
+                    <input type="text" id="librarySearch" placeholder="Search books, manuscripts, audio, video...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Library Stats -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-book"></i>
+                        <h3>2,500+</h3>
+                        <p>Digital Books</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-scroll"></i>
+                        <h3>1,200+</h3>
+                        <p>Historical Manuscripts</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-photo-video"></i>
+                        <h3>800+</h3>
+                        <p>Audio/Visual Files</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-images"></i>
+                        <h3>5,000+</h3>
+                        <p>Digital Images</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-options">
+                    <button class="filter-btn active" data-filter="all">All Resources</button>
+                    <button class="filter-btn" data-filter="books">Books</button>
+                    <button class="filter-btn" data-filter="manuscripts">Manuscripts</button>
+                    <button class="filter-btn" data-filter="audio">Audio</button>
+                    <button class="filter-btn" data-filter="video">Video</button>
+                    <button class="filter-btn" data-filter="images">Images</button>
+                    <button class="filter-btn" data-filter="journals">Journals</button>
+                </div>
+                <div class="sort-options">
+                    <select id="sortSelect">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="popular">Most Viewed</option>
+                        <option value="title">Title A-Z</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Library Content -->
+        <section class="library-content">
+            <div class="container">
+                <div class="resource-grid" id="resourceGrid">
+                    <!-- Resources will be loaded here via JavaScript -->
+                </div>
+                <div class="pagination">
+                    <button class="page-btn" id="prevPage"><i class="fas fa-chevron-left"></i> Previous</button>
+                    <span class="page-info">Page <span id="currentPage">1</span> of <span id="totalPages">5</span></span>
+                    <button class="page-btn" id="nextPage">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Collections -->
+        <section class="featured-collections">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Collections</h2>
+                    <p>Highlighted heritage collections</p>
+                </div>
+                <div class="collections-grid">
+                    <div class="collection-card">
+                        <div class="collection-img">
+                            <i class="fas fa-quran"></i>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Islamic Manuscripts</h3>
+                            <p>Collection of 500+ historical Islamic manuscripts from Northern Nigeria</p>
+                            <a href="#" class="btn-view">View Collection</a>
+                        </div>
+                    </div>
+                    <div class="collection-card">
+                        <div class="collection-img">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Historical Photos</h3>
+                            <p>Archive of 1,200+ historical photographs from 1900-1960</p>
+                            <a href="#" class="btn-view">View Collection</a>
+                        </div>
+                    </div>
+                    <div class="collection-card">
+                        <div class="collection-img">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Traditional Music</h3>
+                            <p>Audio recordings of traditional music and oral histories</p>
+                            <a href="#" class="btn-view">View Collection</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <div class="container">
+                <div class="upload-container">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Contribute to the Library</h3>
+                    <p>Help expand our digital collection by uploading historical resources</p>
+                    <div class="upload-options">
+                        <button class="upload-btn" id="uploadBook">
+                            <i class="fas fa-book"></i>
+                            Upload Book
+                        </button>
+                        <button class="upload-btn" id="uploadImage">
+                            <i class="fas fa-image"></i>
+                            Upload Image
+                        </button>
+                        <button class="upload-btn" id="uploadAudio">
+                            <i class="fas fa-music"></i>
+                            Upload Audio
+                        </button>
+                    </div>
+                    <p class="upload-note">All uploads will be reviewed before publication</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Stats -->
+        <section class="download-stats">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Library Statistics</h2>
+                    <p>Usage and engagement metrics</p>
+                </div>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-bar" style="width: 85%;"></div>
+                        <span>Books Downloaded</span>
+                        <span>12,450</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-bar" style="width: 70%;"></div>
+                        <span>Researchers Registered</span>
+                        <span>3,250</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-bar" style="width: 90%;"></div>
+                        <span>Total Views</span>
+                        <span>45,800</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-bar" style="width: 60%;"></div>
+                        <span>Countries Reached</span>
+                        <span>45</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Arewa Conservation</h3>
+                <p>Preserving Northern Nigeria's cultural and natural heritage through innovation and community engagement.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="digital-library.html">Digital Library</a></li>
+                    <li><a href="conservation-projects.html">Projects</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="research-portal.html">Research Portal</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Kaduna, Nigeria</p>
+                <p><i class="fas fa-envelope"></i> info@arewaconservation.org</p>
+                <p><i class="fas fa-phone"></i> +234 800 123 4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Arewa Conservation Platform. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="security-center.html">Security Center</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Upload Modal -->
+    <div class="modal" id="uploadModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Upload Resource</h3>
+            <form id="uploadForm">
+                <div class="form-group">
+                    <label for="resourceTitle">Title *</label>
+                    <input type="text" id="resourceTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="resourceType">Resource Type *</label>
+                    <select id="resourceType" required>
+                        <option value="">Select type</option>
+                        <option value="book">Book</option>
+                        <option value="manuscript">Manuscript</option>
+                        <option value="image">Image</option>
+                        <option value="audio">Audio</option>
+                        <option value="video">Video</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="resourceDescription">Description</label>
+                    <textarea id="resourceDescription" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="resourceFile">File *</label>
+                    <input type="file" id="resourceFile" required>
+                </div>
+                <div class="form-group">
+                    <label for="resourceTags">Tags (comma separated)</label>
+                    <input type="text" id="resourceTags" placeholder="history, culture, arewa, etc.">
+                </div>
+                <button type="submit" class="btn-primary">Upload Resource</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/digital-library.js"></script>
+</body>
+</html>

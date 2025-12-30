@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Arewa Conservation Platform</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <style>
+        /* Custom styles for registration page */
+        .register-page {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .register-page main {
+            margin-top: 0;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .register-container {
+            width: 100%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        @media (max-width: 992px) {
+            .register-container {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+            }
+        }
+    </style>
+</head>
+<body class="register-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-leaf" style="color: #2c5530;"></i>
+                <span>Arewa Conservation</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="login.html" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Registration Content -->
+    <main>
+        <div class="register-container">
+            <!-- Left Column: Registration Form -->
+            <div class="registration-form-section">
+                <div class="registration-form-card">
+                    <div class="form-header">
+                        <h2><i class="fas fa-user-plus"></i> Create Account</h2>
+                        <p>Join Arewa Conservation Platform today</p>
+                        
+                        <div class="registration-progress">
+                            <div class="progress-steps">
+                                <div class="step active" data-step="1">
+                                    <span class="step-number">1</span>
+                                    <span class="step-label">Personal Info</span>
+                                </div>
+                                <div class="step" data-step="2">
+                                    <span class="step-number">2</span>
+                                    <span class="step-label">Account Details</span>
+                                </div>
+                                <div class="step" data-step="3">
+                                    <span class="step-number">3</span>
+                                    <span class="step-label">Preferences</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 33%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="registrationForm" class="registration-form">
+                        <!-- Step 1: Personal Information -->
+                        <div class="form-step active" data-step="1">
+                            <h3><i class="fas fa-user-circle"></i> Personal Information</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">
+                                        <i class="fas fa-user"></i> First Name
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input type="text" id="firstName" name="firstName" required
+                                           placeholder="Enter your first name">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="lastName">
+                                        <i class="fas fa-user"></i> Last Name
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input type="text" id="lastName" name="lastName" required
+                                           placeholder="Enter your last name">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">
+                                    <i class="fas fa-envelope"></i> Email Address
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="input-with-icon">
+                                    <input type="email" id="email" name="email" required
+                                           placeholder="your.email@example.com">
+                                    <i class="fas fa-at"></i>
+                                </div>
+                                <small class="input-hint">We'll send a verification email to this address</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">
+                                    <i class="fas fa-phone"></i> Phone Number
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="input-with-icon">
+                                    <input type="tel" id="phone" name="phone" required
+                                           placeholder="+234 800 123 4567">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="location">
+                                    <i class="fas fa-map-marker-alt"></i> Location
+                                    <span class="required">*</span>
+                                </label>
+                                <select id="location" name="location" required>
+                                    <option value="">Select your state</option>
+                                    <option value="kano">Kano State</option>
+                                    <option value="kaduna">Kaduna State</option>
+                                    <option value="katsina">Katsina State</option>
+                                    <option value="sokoto">Sokoto State</option>
+                                    <option value="borno">Borno State</option>
+                                    <option value="bauchi">Bauchi State</option>
+                                    <option value="gombe">Gombe State</option>
+                                    <option value="jigawa">Jigawa State</option>
+                                    <option value="kebbi">Kebbi State</option>
+                                    <option value="yobe">Yobe State</option>
+                                    <option value="zamfara">Zamfara State</option>
+                                    <option value="plateau">Plateau State</option>
+                                    <option value="other">Other Location</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn-next" onclick="nextStep()">
+                                    Next Step <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Account Details -->
+                        <div class="form-step" data-step="2">
+                            <h3><i class="fas fa-key"></i> Account Security</h3>
+                            
+                            <div class="form-group">
+                                <label for="password">
+                                    <i class="fas fa-lock"></i> Create Password
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="input-with-icon">
+                                    <input type="password" id="password" name="password" required
+                                           placeholder="Create a strong password"
+                                           minlength="8">
+                                    <i class="fas fa-key"></i>
+                                    <button type="button" class="toggle-password" data-target="password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength">
+                                    <div class="strength-bar">
+                                        <div class="strength-fill" data-strength="0"></div>
+                                    </div>
+                                    <span class="strength-text">Password strength: Weak</span>
+                                </div>
+                                <ul class="password-requirements">
+                                    <li data-requirement="length"><i class="fas fa-times"></i> At least 8 characters</li>
+                                    <li data-requirement="uppercase"><i class="fas fa-times"></i> One uppercase letter</li>
+                                    <li data-requirement="lowercase"><i class="fas fa-times"></i> One lowercase letter</li>
+                                    <li data-requirement="number"><i class="fas fa-times"></i> One number</li>
+                                    <li data-requirement="special"><i class="fas fa-times"></i> One special character</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirmPassword">
+                                    <i class="fas fa-lock"></i> Confirm Password
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="input-with-icon">
+                                    <input type="password" id="confirmPassword" name="confirmPassword" required
+                                           placeholder="Re-enter your password">
+                                    <i class="fas fa-lock"></i>
+                                    <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-match">
+                                    <i class="fas fa-times"></i>
+                                    <span>Passwords do not match</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="securityQuestion">
+                                    <i class="fas fa-question-circle"></i> Security Question
+                                </label>
+                                <select id="securityQuestion" name="securityQuestion">
+                                    <option value="">Select a security question</option>
+                                    <option value="mother_maiden">What is your mother's maiden name?</option>
+                                    <option value="first_pet">What was your first pet's name?</option>
+                                    <option value="birth_city">In what city were you born?</option>
+                                    <option value="first_school">What was your first school's name?</option>
+                                    <option value="favorite_teacher">Who was your favorite teacher?</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="securityAnswer">
+                                    <i class="fas fa-shield-alt"></i> Security Answer
+                                </label>
+                                <input type="text" id="securityAnswer" name="securityAnswer"
+                                       placeholder="Your answer to the security question">
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn-prev" onclick="prevStep()">
+                                    <i class="fas fa-arrow-left"></i> Previous
+                                </button>
+                                <button type="button" class="btn-next" onclick="nextStep()">
+                                    Next Step <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Preferences & Role -->
+                        <div class="form-step" data-step="3">
+                            <h3><i class="fas fa-cogs"></i> Account Preferences</h3>
+                            
+                            <div class="form-group">
+                                <label for="userType">
+                                    <i class="fas fa-user-tag"></i> Account Type
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="account-type-grid">
+                                    <label class="account-type-card">
+                                        <input type="radio" name="userType" value="public" checked>
+                                        <div class="type-content">
+                                            <i class="fas fa-users"></i>
+                                            <h4>Public User</h4>
+                                            <p>Browse collections, access digital library</p>
+                                            <span class="type-badge">Free</span>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="account-type-card">
+                                        <input type="radio" name="userType" value="volunteer">
+                                        <div class="type-content">
+                                            <i class="fas fa-hands-helping"></i>
+                                            <h4>Volunteer</h4>
+                                            <p>Join conservation projects, contribute</p>
+                                            <span class="type-badge">Volunteer</span>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="account-type-card">
+                                        <input type="radio" name="userType" value="researcher">
+                                        <div class="type-content">
+                                            <i class="fas fa-microscope"></i>
+                                            <h4>Researcher</h4>
+                                            <p>Access research portal, publish studies</p>
+                                            <span class="type-badge">Academic</span>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="account-type-card">
+                                        <input type="radio" name="userType" value="conservator">
+                                        <div class="type-content">
+                                            <i class="fas fa-tree"></i>
+                                            <h4>Conservation Expert</h4>
+                                            <p>Lead projects, manage collections</p>
+                                            <span class="type-badge">Professional</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="interests">
+                                    <i class="fas fa-heart"></i> Areas of Interest
+                                </label>
+                                <div class="interest-tags">
+                                    <label class="interest-tag">
+                                        <input type="checkbox" name="interests" value="cultural_heritage">
+                                        <span>Cultural Heritage</span>
+                                    </label>
+                                    <label class="interest-tag">
+                                        <input type="checkbox" name="interests" value="biodiversity">
+                                        <span>Biodiversity</span>
+                                    </label>
+                                    <label class="interest-tag">
+                                        <input type="checkbox" name="interests" value="digital_preservation">
+                                        <span>Digital Preservation</span>
+                                    </label>
+                                    <label class="interest-tag">
+                                        <input type="checkbox" name="interests" value="research">
+                                        <span>Research</span>
+                                    </label>
+                                    <label class="interest-tag">
+                                        <input type="checkbox" name="interests" value="education">
+                                        <span>Heritage Education</span>
+                                    </label>
+                                    <label class="interest-tag">
+                                        <input type="checkbox" name="interests" value="community">
+                                        <span>Community Engagement</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="newsletter" id="newsletter" checked>
+                                    <span class="checkmark"></span>
+                                    Subscribe to newsletter & updates
+                                </label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="terms" id="terms" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>
+                                    <span class="required">*</span>
+                                </label>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn-prev" onclick="prevStep()">
+                                    <i class="fas fa-arrow-left"></i> Previous
+                                </button>
+                                <button type="submit" class="btn-submit">
+                                    <i class="fas fa-check-circle"></i> Create Account
+                                    <div class="loading-spinner"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Already have account -->
+                    <div class="login-link">
+                        <p>Already have an account? <a href="login.html">Sign in here</a></p>
+                    </div>
+                </div>
+
+                <!-- Security Footer -->
+                <div class="security-footer">
+                    <div class="security-features">
+                        <span><i class="fas fa-shield-alt"></i> SSL Encrypted</span>
+                        <span><i class="fas fa-database"></i> GDPR Compliant</span>
+                        <span><i class="fas fa-user-shield"></i> Privacy Protected</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Benefits & Info -->
+            <div class="registration-benefits">
+                <div class="benefits-card">
+                    <div class="benefits-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h1>Join Our Conservation Community</h1>
+                    <p class="benefits-subtitle">Become part of Northern Nigeria's premier heritage preservation platform</p>
+                    
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Access Digital Collections</h4>
+                                <p>Explore thousands of digitized artifacts and manuscripts</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Join Conservation Projects</h4>
+                                <p>Participate in field work and preservation initiatives</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Collaborate with Experts</h4>
+                                <p>Network with researchers and conservation professionals</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Contribute to Research</h4>
+                                <p>Share findings and participate in academic studies</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="verification-process">
+                        <h3><i class="fas fa-user-check"></i> Account Verification</h3>
+                        <div class="verification-steps">
+                            <div class="verification-step">
+                                <div class="step-icon">1</div>
+                                <p>Email Verification</p>
+                            </div>
+                            <div class="verification-step">
+                                <div class="step-icon">2</div>
+                                <p>Profile Completion</p>
+                            </div>
+                            <div class="verification-step">
+                                <div class="step-icon">3</div>
+                                <p>Account Activation</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-preview">
+                        <h3><i class="fas fa-chart-line"></i> Platform Statistics</h3>
+                        <div class="stats-grid">
+                            <div class="stat">
+                                <strong>5,000+</strong>
+                                <span>Registered Users</span>
+                            </div>
+                            <div class="stat">
+                                <strong>2,500+</strong>
+                                <span>Active Volunteers</span>
+                            </div>
+                            <div class="stat">
+                                <strong>150+</strong>
+                                <span>Research Papers</span>
+                            </div>
+                            <div class="stat">
+                                <strong>12</strong>
+                                <span>Northern States</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+   <script src="js/register.js"></script>
+    <!-- CSS for Registration Page -->
+    <style>
+        /* Registration Page Specific Styles */
+        .register-page .navbar {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .register-page .logo {
+            color: #2c5530;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .register-page .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .register-page .nav-link {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .register-page .nav-link:hover {
+            color: #2c5530;
+            background: rgba(44, 85, 48, 0.1);
+        }
+
+        /* Registration Form Card */
+        .registration-form-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(44, 85, 48, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            color: #2c5530;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-weight: 700;
+        }
+
+        .form-header p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* Registration Progress */
+        .registration-progress {
+            margin: 2rem 0;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #e5e7eb;
+            color: #6b7280;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .step.active .step-number {
+            background: #2c5530;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .step-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .step.active .step-label {
+            color: #2c5530;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: #e5e7eb;
+            border-radius: 2px;
+            position: relative;
+            margin: 0 20px;
+        }
+
+        .progress-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(to right, #2c5530, #4a6d4d);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        /* Form Steps */
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-step h3 {
+            color: #2c5530;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Form Layout */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Form Groups */
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        /* Input Fields */
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon i:first-of-type {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            font-size: 1.1rem;
+        }
+
+        .input-with-icon input,
+        .input-with-icon select {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-family: 'Open Sans', sans-serif;
+            color: #2c3e50;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .input-with-icon input:focus,
+        .input-with-icon select:focus {
+            outline: none;
+            border-color: #2c5530;
+            box-shadow: 0 0 0 3px rgba(44, 85, 48, 0.1);
+        }
+
+        .form-group.error .input-with-icon input,
+        .form-group.error .input-with-icon select {
+            border-color: #ef4444;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            padding: 0.25rem;
+            font-size: 1.1rem;
+        }
+
+        .toggle-password:hover {
+            color: #2c5530;
+        }
+
+        .input-hint {
+            display: block;
+            color: #6b7280;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            line-height: 1.4;
+        }
+
+        /* Password Strength */
+        .password-strength {
+            margin-top: 0.75rem;
+        }
+
+        .strength-bar {
+            height: 6px;
+            background: #e5e7eb;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .strength-fill {
+            height: 100%;
+            width: 0;
+            background: #ef4444;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .strength-text {
+            font-size: 0.85rem;
+            color: #6b7280;
+            display: block;
+            text-align: right;
+        }
+
+        .password-requirements {
+            list-style: none;
+            padding: 0;
+            margin: 0.75rem 0 0 0;
+        }
+
+        .password-requirements li {
+            color: #6b7280;
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .password-requirements li i {
+            font-size: 0.75rem;
+        }
+
+        .password-match {
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            color: #ef4444;
+        }
+
+        .password-match i {
+            font-size: 0.75rem;
+        }
+
+        /* Account Type Selection */
+        .account-type-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .account-type-card {
+            cursor: pointer;
+        }
+
+        .account-type-card input {
+            display: none;
+        }
+
+        .type-content {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .account-type-card input:checked + .type-content {
+            border-color: #2c5530;
+            background: rgba(44, 85, 48, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 85, 48, 0.1);
+        }
+
+        .type-content i {
+            font-size: 2rem;
+            color: #2c5530;
+            margin-bottom: 1rem;
+        }
+
+        .type-content h4 {
+            color: #2c3e50;
+            margin: 0 0 0.5rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .type-content p {
+            color: #666;
+            font-size: 0.85rem;
+            margin: 0 0 0.75rem 0;
+            line-height: 1.4;
+        }
+
+        .type-badge {
+            background: rgba(44, 85, 48, 0.1);
+            color: #2c5530;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Interest Tags */
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .interest-tag {
+            cursor: pointer;
+        }
+
+        .interest-tag input {
+            display: none;
+        }
+
+        .interest-tag span {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 2rem;
+            color: #6b7280;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .interest-tag input:checked + span {
+            background: rgba(44, 85, 48, 0.1);
+            border-color: #2c5530;
+            color: #2c5530;
+            font-weight: 600;
+        }
+
+        /* Checkbox */
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            cursor: pointer;
+            color: #4b5563;
+            font-size: 0.95rem;
+            user-select: none;
+            line-height: 1.5;
+        }
+
+        .checkbox-label input {
+            display: none;
+        }
+
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+            position: relative;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checkbox-label input:checked + .checkmark {
+            background: #2c5530;
+            border-color: #2c5530;
+        }
+
+        .checkbox-label input:checked + .checkmark:after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-size: 0.75rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .checkbox-label a {
+            color: #2c5530;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .checkbox-label a:hover {
+            text-decoration: underline;
+        }
+
+        /* Form Actions */
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .btn-prev,
+        .btn-next,
+        .btn-submit {
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .btn-prev {
+            background: white;
+            color: #2c5530;
+            border: 2px solid #2c5530;
+        }
+
+        .btn-prev:hover {
+            background: rgba(44, 85, 48, 0.1);
+        }
+
+        .btn-next,
+        .btn-submit {
+            background: linear-gradient(135deg, #2c5530, #4a6d4d);
+            color: white;
+            border: none;
+        }
+
+        .btn-next:hover:not(:disabled),
+        .btn-submit:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(44, 85, 48, 0.2);
+            background: linear-gradient(135deg, #1e3a20, #2c5530);
+        }
+
+        .btn-next:disabled,
+        .btn-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Login Link */
+        .login-link {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 2rem;
+        }
+
+        .login-link p {
+            color: #6b7280;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .login-link a {
+            color: #2c5530;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .login-link a:hover {
+            color: #1e3a20;
+            text-decoration: underline;
+        }
+
+        /* Benefits Card */
+        .benefits-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(44, 85, 48, 0.1);
+        }
+
+        .benefits-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2c5530, #4a6d4d);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .benefits-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .benefits-card h1 {
+            color: #2c5530;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .benefits-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        /* Benefits List */
+        .benefits-list {
+            margin: 2rem 0;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(44, 85, 48, 0.05);
+            border-radius: 0.75rem;
+        }
+
+        .benefit-item i {
+            font-size: 1.5rem;
+            color: #2c5530;
+            margin-top: 2px;
+        }
+
+        .benefit-item h4 {
+            color: #2c3e50;
+            margin: 0 0 0.25rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .benefit-item p {
+            color: #666;
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Verification Process */
+        .verification-process {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(44, 85, 48, 0.05);
+            border-radius: 1rem;
+        }
+
+        .verification-process h3 {
+            color: #2c5530;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+        }
+
+        .verification-steps {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .verification-step {
+            text-align: center;
+            flex: 1;
+        }
+
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border: 2px solid #2c5530;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #2c5530;
+            margin: 0 auto 0.5rem;
+        }
+
+        .verification-step p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Stats Preview */
+        .stats-preview {
+            margin-top: 2rem;
+        }
+
+        .stats-preview h3 {
+            color: #2c5530;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .stat {
+            background: white;
+            border: 1px solid rgba(44, 85, 48, 0.1);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            color: #2c5530;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat span {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Security Footer */
+        .security-footer {
+            text-align: center;
+        }
+
+        .security-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .security-features span {
+            color: #6b7280;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .security-features i {
+            color: #2c5530;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            border-left: 4px solid;
+            max-width: 400px;
+        }
+
+        .notification.success {
+            border-left-color: #10b981;
+        }
+
+        .notification.error {
+            border-left-color: #ef4444;
+        }
+
+        .notification i {
+            font-size: 1.2rem;
+        }
+
+        .notification.success i {
+            color: #10b981;
+        }
+
+        .notification.error i {
+            color: #ef4444;
+        }
+
+        .notification span {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .notification button {
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-left: auto;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .notification button:hover {
+            background: rgba(0,0,0,0.05);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .benefits-card h1 {
+                font-size: 2rem;
+            }
+            
+            .account-type-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .verification-steps {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .verification-step {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                text-align: left;
+            }
+            
+            .step-icon {
+                margin: 0;
+                flex-shrink: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .register-page main {
+                padding: 1rem;
+            }
+            
+            .registration-form-card,
+            .benefits-card {
+                padding: 2rem;
+            }
+            
+            .form-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .btn-prev,
+            .btn-next,
+            .btn-submit {
+                width: 100%;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .security-features {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .registration-form-card,
+            .benefits-card {
+                padding: 1.5rem;
+            }
+            
+            .progress-steps {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+            
+            .step {
+                flex-direction: row;
+                gap: 1rem;
+            }
+            
+            .step-label {
+                text-align: left;
+            }
+            
+            .progress-bar {
+                display: none;
+            }
+            
+            .register-page .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</body>
+</html>

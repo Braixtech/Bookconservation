@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Arewa Conservation Platform</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <style>
+        /* Custom styles for login page */
+        .login-page {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .login-page main {
+            margin-top: 0;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .login-container {
+            width: 100%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 992px) {
+            .login-container {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+        }
+    </style>
+</head>
+<body class="login-page">
+    <!-- Navigation (Simplified for Login Page) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-leaf" style="color: #2c5530;"></i>
+                <span>Arewa Conservation</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="register.html" class="nav-link"><i class="fas fa-user-plus"></i> Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Login Content -->
+    <main>
+        <div class="login-container">
+            <!-- Left Column: Branding & Info -->
+            <div class="login-branding">
+                <div class="branding-card">
+                    <div class="branding-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h1>Welcome Back</h1>
+                    <p class="branding-subtitle">Secure access to Arewa Conservation Platform</p>
+                    
+                    <div class="branding-features">
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Military-Grade Security</h4>
+                                <p>256-bit encryption & 2FA protection</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-users-cog"></i>
+                            <div>
+                                <h4>Role-Based Access</h4>
+                                <p>Different dashboards for different roles</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <h4>Real-Time Monitoring</h4>
+                                <p>Track activities and analytics</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="user-types">
+                        <h3>Platform Users</h3>
+                        <div class="user-badges">
+                            <span class="user-badge admin"><i class="fas fa-crown"></i> Super Admin</span>
+                            <span class="user-badge researcher"><i class="fas fa-microscope"></i> Researchers</span>
+                            <span class="user-badge conservator"><i class="fas fa-tree"></i> Conservators</span>
+                            <span class="user-badge volunteer"><i class="fas fa-hands-helping"></i> Volunteers</span>
+                            <span class="user-badge public"><i class="fas fa-users"></i> Public Users</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Login Form -->
+            <div class="login-form-section">
+                <div class="login-form-card">
+                    <div class="form-header">
+                        <h2><i class="fas fa-sign-in-alt"></i> Secure Login</h2>
+                        <p>Enter your credentials to access the platform</p>
+                        
+                        <div class="security-indicator">
+                            <div class="security-level">
+                                <span class="security-dot active"></span>
+                                <span class="security-dot active"></span>
+                                <span class="security-dot active"></span>
+                                <span class="security-dot"></span>
+                                <span class="security-dot"></span>
+                                <span>Security: High</span>
+                            </div>
+                            <span class="secure-connection">
+                                <i class="fas fa-lock"></i> HTTPS Secure
+                            </span>
+                        </div>
+                    </div>
+
+                    <form id="loginForm" class="login-form">
+                        <!-- Email Field -->
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i> Email Address
+                                <span class="required">*</span>
+                            </label>
+                            <div class="input-with-icon">
+                                <input type="email" id="email" name="email" 
+                                       placeholder="your.email@arewaconservation.org"
+                                       autocomplete="email" required>
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <small class="input-hint">Use your registered email address</small>
+                        </div>
+
+                        <!-- Password Field -->
+                        <div class="form-group">
+                            <label for="password">
+                                <i class="fas fa-key"></i> Password
+                                <span class="required">*</span>
+                            </label>
+                            <div class="input-with-icon">
+                                <input type="password" id="password" name="password" 
+                                       placeholder="Enter your password"
+                                       autocomplete="current-password" 
+                                       minlength="8" required>
+                                <i class="fas fa-lock"></i>
+                                <button type="button" class="toggle-password" onclick="togglePassword()">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <small class="input-hint">Minimum 8 characters with mixed case and numbers</small>
+                        </div>
+
+                        <!-- Remember Me & Forgot Password -->
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="remember" id="remember">
+                                <span class="checkmark"></span>
+                                Remember this device
+                            </label>
+                            <a href="forgot-password.html" class="forgot-password">
+                                <i class="fas fa-question-circle"></i> Forgot Password?
+                            </a>
+                        </div>
+
+                        <!-- Role Selection (for demo/testing) -->
+                        <div class="form-group">
+                            <label for="userRole"><i class="fas fa-user-tag"></i> Login As (Demo)</label>
+                            <select id="userRole" name="userRole" class="role-select">
+                                <option value="superadmin">Super Administrator</option>
+                                <option value="admin">Administrator</option>
+                                <option value="researcher">Researcher</option>
+                                <option value="conservator">Conservation Expert</option>
+                                <option value="volunteer">Volunteer</option>
+                                <option value="public">Public User</option>
+                            </select>
+                            <small class="input-hint">Select your role for demo purposes</small>
+                        </div>
+
+                        <!-- Login Button -->
+                        <button type="submit" class="btn-login">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Login to Dashboard</span>
+                            <div class="loading-spinner"></div>
+                        </button>
+
+                        <!-- Social Login (Optional) -->
+                        <div class="social-login">
+                            <p class="divider">Or continue with</p>
+                            <div class="social-buttons">
+                                <button type="button" class="social-btn google">
+                                    <i class="fab fa-google"></i> Google
+                                </button>
+                                <button type="button" class="social-btn microsoft">
+                                    <i class="fab fa-microsoft"></i> Microsoft
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Register Link -->
+                        <div class="register-link">
+                            <p>New to Arewa Conservation? <a href="register.html">Create an account</a></p>
+                        </div>
+                    </form>
+
+                    <!-- Quick Access (for demo) -->
+                    <div class="quick-access">
+                        <h4><i class="fas fa-bolt"></i> Quick Demo Access</h4>
+                        <div class="demo-credentials">
+                            <div class="demo-account" onclick="fillDemo('superadmin')">
+                                <strong>Super Admin</strong>
+                                <small>admin@arewa.org</small>
+                            </div>
+                            <div class="demo-account" onclick="fillDemo('researcher')">
+                                <strong>Researcher</strong>
+                                <small>research@arewa.org</small>
+                            </div>
+                            <div class="demo-account" onclick="fillDemo('volunteer')">
+                                <strong>Volunteer</strong>
+                                <small>volunteer@arewa.org</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Footer -->
+                <div class="security-footer">
+                    <div class="security-features">
+                        <span><i class="fas fa-shield-alt"></i> End-to-End Encryption</span>
+                        <span><i class="fas fa-history"></i> Activity Logging</span>
+                        <span><i class="fas fa-bell"></i> Real-Time Alerts</span>
+                    </div>
+                    <p class="copyright">
+                        <i class="fas fa-copyright"></i> 2024 Arewa Conservation Platform. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        // Password visibility toggle
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.querySelector('.toggle-password i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+
+        // Demo credentials filler
+        function fillDemo(role) {
+            const credentials = {
+                superadmin: { email: 'superadmin@arewaconservation.org', password: 'Admin123!' },
+                admin: { email: 'admin@arewaconservation.org', password: 'Admin123!' },
+                researcher: { email: 'researcher@arewaconservation.org', password: 'Research123!' },
+                conservator: { email: 'conservator@arewaconservation.org', password: 'Conserve123!' },
+                volunteer: { email: 'volunteer@arewaconservation.org', password: 'Volunteer123!' },
+                public: { email: 'user@arewaconservation.org', password: 'User123!' }
+            };
+            
+            document.getElementById('email').value = credentials[role].email;
+            document.getElementById('password').value = credentials[role].password;
+            document.getElementById('userRole').value = role;
+            
+            // Show notification
+            showNotification(`Demo ${role} credentials loaded`, 'success');
+        }
+
+        // Form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.btn-login');
+            const spinner = submitBtn.querySelector('.loading-spinner');
+            const buttonText = submitBtn.querySelector('span');
+            
+            // Show loading
+            submitBtn.disabled = true;
+            spinner.style.display = 'block';
+            buttonText.textContent = 'Authenticating...';
+            
+            // Simulate API call
+            setTimeout(() => {
+                const role = document.getElementById('userRole').value;
+                
+                // Store user session
+                sessionStorage.setItem('userAuthenticated', 'true');
+                sessionStorage.setItem('userRole', role);
+                sessionStorage.setItem('userEmail', document.getElementById('email').value);
+                sessionStorage.setItem('loginTime', new Date().toISOString());
+                
+                // Redirect based on role
+                const redirects = {
+                    superadmin: 'admin-dashboard.html',
+                    admin: 'admin-dashboard.html',
+                    researcher: 'research-portal.html',
+                    conservator: 'conservation-projects.html',
+                    volunteer: 'volunteer.html',
+                    public: 'profile.html'
+                };
+                
+                showNotification('Login successful! Redirecting...', 'success');
+                
+                setTimeout(() => {
+                    window.location.href = redirects[role] || 'profile.html';
+                }, 1500);
+                
+            }, 2000);
+        });
+
+        // Notification function
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()">&times;</button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check for existing session
+            if (sessionStorage.getItem('userAuthenticated') === 'true') {
+                const loginTime = new Date(sessionStorage.getItem('loginTime'));
+                const hoursDiff = (new Date() - loginTime) / 36e5;
+                
+                if (hoursDiff < 24) {
+                    // Auto-redirect based on role
+                    const role = sessionStorage.getItem('userRole');
+                    const currentPage = window.location.pathname.split('/').pop();
+                    
+                    if (currentPage === 'login.html') {
+                        const redirects = {
+                            superadmin: 'admin-dashboard.html',
+                            admin: 'admin-dashboard.html',
+                            researcher: 'research-portal.html',
+                            conservator: 'conservation-projects.html',
+                            volunteer: 'volunteer.html',
+                            public: 'profile.html'
+                        };
+                        
+                        window.location.href = redirects[role] || 'profile.html';
+                    }
+                } else {
+                    sessionStorage.clear();
+                }
+            }
+        });
+    </script>
+
+    <!-- CSS for Login Page -->
+    <style>
+        /* Login Page Specific Styles */
+        .login-page .navbar {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .login-page .logo {
+            color: #2c5530;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .login-page .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .login-page .nav-link {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .login-page .nav-link:hover {
+            color: #2c5530;
+            background: rgba(44, 85, 48, 0.1);
+        }
+
+        /* Branding Card */
+        .branding-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(44, 85, 48, 0.1);
+        }
+
+        .branding-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2c5530, #4a6d4d);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .branding-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .branding-card h1 {
+            color: #2c5530;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .branding-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Features */
+        .branding-features {
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(44, 85, 48, 0.05);
+            border-radius: 0.75rem;
+            border-left: 4px solid #2c5530;
+        }
+
+        .feature-item i {
+            font-size: 1.5rem;
+            color: #2c5530;
+            width: 40px;
+            height: 40px;
+            background: rgba(44, 85, 48, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-item h4 {
+            color: #2c3e50;
+            margin: 0 0 0.25rem 0;
+            font-size: 1rem;
+        }
+
+        .feature-item p {
+            color: #666;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* User Types */
+        .user-types h3 {
+            color: #2c5530;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .user-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .user-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .user-badge.admin {
+            background: linear-gradient(135deg, #2c5530, #4a6d4d);
+            color: white;
+        }
+
+        .user-badge.researcher {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .user-badge.conservator {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .user-badge.volunteer {
+            background: rgba(245, 158, 11, 0.1);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .user-badge.public {
+            background: rgba(107, 114, 128, 0.1);
+            color: #6b7280;
+            border: 1px solid rgba(107, 114, 128, 0.2);
+        }
+
+        /* Login Form Card */
+        .login-form-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(44, 85, 48, 0.1);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            color: #2c5530;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .form-header p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Security Indicator */
+        .security-indicator {
+            background: rgba(44, 85, 48, 0.05);
+            border-radius: 1rem;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .security-level {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .security-dot {
+            width: 10px;
+            height: 10px;
+            background: #e5e7eb;
+            border-radius: 50%;
+        }
+
+        .security-dot.active {
+            background: #10b981;
+        }
+
+        .secure-connection {
+            color: #10b981;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon i:first-of-type {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+        }
+
+        .input-with-icon input,
+        .input-with-icon select {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-family: 'Open Sans', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .input-with-icon input:focus,
+        .input-with-icon select:focus {
+            outline: none;
+            border-color: #2c5530;
+            box-shadow: 0 0 0 3px rgba(44, 85, 48, 0.1);
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+
+        .toggle-password:hover {
+            color: #2c5530;
+        }
+
+        .input-hint {
+            display: block;
+            color: #6b7280;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Form Options */
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1.5rem 0;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            color: #4b5563;
+            font-size: 0.95rem;
+        }
+
+        .checkbox-label input {
+            display: none;
+        }
+
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-label input:checked + .checkmark {
+            background: #2c5530;
+            border-color: #2c5530;
+        }
+
+        .checkbox-label input:checked + .checkmark:after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-size: 0.75rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .forgot-password {
+            color: #2c5530;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password:hover {
+            color: #1e3a20;
+            text-decoration: underline;
+        }
+
+        /* Role Select */
+        .role-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%232c5530'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1rem;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        /* Login Button */
+        .btn-login {
+            width: 100%;
+            background: linear-gradient(135deg, #2c5530, #4a6d4d);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .btn-login:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(44, 85, 48, 0.2);
+        }
+
+        .btn-login:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Social Login */
+        .social-login {
+            margin: 2rem 0;
+        }
+
+        .divider {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+            position: relative;
+            margin: 1.5rem 0;
+        }
+
+        .divider:before,
+        .divider:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background: #e5e7eb;
+        }
+
+        .divider:before {
+            left: 0;
+        }
+
+        .divider:after {
+            right: 0;
+        }
+
+        .social-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .social-btn {
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
+            background: white;
+            color: #4b5563;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .social-btn:hover {
+            border-color: #2c5530;
+            color: #2c5530;
+            transform: translateY(-1px);
+        }
+
+        .social-btn.google i {
+            color: #db4437;
+        }
+
+        .social-btn.microsoft i {
+            color: #00a4ef;
+        }
+
+        /* Register Link */
+        .register-link {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .register-link p {
+            color: #6b7280;
+            margin: 0;
+        }
+
+        .register-link a {
+            color: #2c5530;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Quick Access */
+        .quick-access {
+            background: rgba(44, 85, 48, 0.05);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(44, 85, 48, 0.1);
+        }
+
+        .quick-access h4 {
+            color: #2c5530;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .demo-credentials {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .demo-credentials {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .demo-account {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        .demo-account:hover {
+            border-color: #2c5530;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .demo-account strong {
+            color: #2c3e50;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .demo-account small {
+            color: #6b7280;
+            font-size: 0.8rem;
+        }
+
+        /* Security Footer */
+        .security-footer {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .security-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .security-features span {
+            color: #6b7280;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .copyright {
+            color: #9ca3af;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+            border-left: 4px solid;
+        }
+
+        .notification.success {
+            border-left-color: #10b981;
+        }
+
+        .notification.error {
+            border-left-color: #ef4444;
+        }
+
+        .notification i {
+            font-size: 1.2rem;
+        }
+
+        .notification.success i {
+            color: #10b981;
+        }
+
+        .notification.error i {
+            color: #ef4444;
+        }
+
+        .notification button {
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-left: auto;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .login-page main {
+                padding: 1rem;
+            }
+            
+            .branding-card,
+            .login-form-card {
+                padding: 2rem;
+            }
+            
+            .branding-card h1 {
+                font-size: 2rem;
+            }
+            
+            .form-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .social-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .branding-card,
+            .login-form-card {
+                padding: 1.5rem;
+            }
+            
+            .security-features {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .form-options {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
+</body>
+</html>

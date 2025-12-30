@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Admin Dashboard | Arewa Conservation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reusing dashboard styles from analytics.html */
+        .dashboard-container {
+            display: flex;
+            min-height: calc(100vh - 80px);
+        }
+        .dashboard-sidebar {
+            width: 250px;
+            background: #1e3a5c;
+            color: white;
+            padding: 20px 0;
+        }
+        .dashboard-content {
+            flex: 1;
+            padding: 30px;
+            background: #f5f7fa;
+        }
+        .sidebar-header {
+            padding: 0 20px 20px;
+            border-bottom: 1px solid #2c4a76;
+        }
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar-menu li {
+            margin: 5px 0;
+        }
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            color: #d1d9e6;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background: #2c4a76;
+            color: white;
+            border-left: 4px solid #4CAF50;
+        }
+        .sidebar-menu i {
+            width: 25px;
+            margin-right: 10px;
+        }
+        .settings-container {
+            max-width: 1000px;
+        }
+        .settings-tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 30px;
+        }
+        .tab-button {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-size: 16px;
+            color: #666;
+        }
+        .tab-button.active {
+            color: #1e3a5c;
+            border-bottom-color: #1e3a5c;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .settings-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+        .settings-section h3 {
+            margin-bottom: 20px;
+            color: #1e3a5c;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #444;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+        .btn-save {
+            background: #1e3a5c;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .btn-save:hover {
+            background: #2c4a76;
+        }
+        .user-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #e8f5e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            font-size: 48px;
+            color: #4CAF50;
+        }
+        .danger-zone {
+            border: 2px solid #f44336;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        .btn-danger {
+            background: #f44336;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-chart-line"></i> Dashboard</h2>
+                <p>Administrator</p>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="admin-dashboard.html"><i class="fas fa-tachometer-alt"></i> Overview</a></li>
+                <li><a href="analytics.html"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                <li><a href="collections.html"><i class="fas fa-archive"></i> Collections</a></li>
+                <li><a href="digital-library.html"><i class="fas fa-book"></i> Digital Library</a></li>
+                <li><a href="conservation-projects.html"><i class="fas fa-seedling"></i> Projects</a></li>
+                <li><a href="report.html"><i class="fas fa-file-alt"></i> Reports</a></li>
+                <li><a href="security-center.html"><i class="fas fa-shield-alt"></i> Security</a></li>
+                <li><a href="settings.html" class="active"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <div class="settings-container">
+                <h1>Settings</h1>
+                <p>Manage your account and platform preferences</p>
+
+                <!-- Settings Tabs -->
+                <div class="settings-tabs">
+                    <button class="tab-button active" data-tab="profile">Profile</button>
+                    <button class="tab-button" data-tab="security">Security</button>
+                    <button class="tab-button" data-tab="notifications">Notifications</button>
+                    <button class="tab-button" data-tab="platform">Platform Settings</button>
+                </div>
+
+                <!-- Profile Tab -->
+                <div class="tab-content active" id="profile">
+                    <div class="settings-section">
+                        <h3>Personal Information</h3>
+                        <div class="user-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" class="form-control" value="Administrator">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control" value="admin@arewaconservation.org">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" class="form-control" value="+234 800 123 4567">
+                        </div>
+                        <button class="btn-save">Update Profile</button>
+                    </div>
+                </div>
+
+                <!-- Security Tab -->
+                <div class="tab-content" id="security">
+                    <div class="settings-section">
+                        <h3>Password & Security</h3>
+                        <div class="form-group">
+                            <label>Current Password</label>
+                            <input type="password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>New Password</label>
+                            <input type="password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm New Password</label>
+                            <input type="password" class="form-control">
+                        </div>
+                        <button class="btn-save">Change Password</button>
+                    </div>
+                    <div class="settings-section">
+                        <h3>Two-Factor Authentication</h3>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="2fa">
+                            <label for="2fa">Enable Two-Factor Authentication</label>
+                        </div>
+                        <p style="color: #666; font-size: 14px;">Add an extra layer of security to your account</p>
+                    </div>
+                </div>
+
+                <!-- Notifications Tab -->
+                <div class="tab-content" id="notifications">
+                    <div class="settings-section">
+                        <h3>Email Notifications</h3>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="notif1" checked>
+                            <label for="notif1">New user registrations</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="notif2" checked>
+                            <label for="notif2">Content uploads</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="notif3">
+                            <label for="notif3">System updates</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="notif4" checked>
+                            <label for="notif4">Security alerts</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Platform Settings Tab -->
+                <div class="tab-content" id="platform">
+                    <div class="settings-section">
+                        <h3>General Settings</h3>
+                        <div class="form-group">
+                            <label>Platform Name</label>
+                            <input type="text" class="form-control" value="Arewa Conservation Platform">
+                        </div>
+                        <div class="form-group">
+                            <label>Default Language</label>
+                            <select class="form-control">
+                                <option>English</option>
+                                <option>Hausa</option>
+                                <option>Arabic</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Time Zone</label>
+                            <select class="form-control">
+                                <option>Africa/Lagos (UTC+1)</option>
+                                <option>Africa/Abidjan (UTC+0)</option>
+                            </select>
+                        </div>
+                        <button class="btn-save">Save Platform Settings</button>
+                    </div>
+                </div>
+
+                <!-- Danger Zone -->
+                <div class="danger-zone">
+                    <h3 style="color: #f44336;">Danger Zone</h3>
+                    <p>These actions are irreversible. Please proceed with caution.</p>
+                    <button class="btn-danger">Deactivate Account</button>
+                    <button class="btn-danger">Delete All Data</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                button.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Form submission handling
+        document.querySelectorAll('.btn-save').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('Settings saved successfully!');
+            });
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

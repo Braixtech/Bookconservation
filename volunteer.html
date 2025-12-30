@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Portal - Arewa Conservation Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+     <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>Arewa Conservation</span>
+            </div>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="collections.html">Collections</a></li>
+                <li><a href="digital-library.html">Digital Library</a></li>
+                <li><a href="research-portal.html">Research</a></li>
+                <li><a href="conservation-projects.html">Conservation</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+            </ul>
+            
+            <div class="user-menu">
+                <div class="user-profile">
+                    <img src="images/avatar-placeholder.jpg" alt="Guest" class="profile-pic">
+                    <span>Guest</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="profile-dropdown">
+                        <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+                        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="volunteer-page">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Volunteer with Us</h1>
+                <p>Join our community of passionate individuals working to preserve Northern Nigeria's heritage</p>
+                <a href="#opportunities" class="btn-primary">View Opportunities</a>
+            </div>
+        </section>
+
+        <!-- Volunteer Stats -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3>2,500+</h3>
+                        <p>Active Volunteers</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>50,000+</h3>
+                        <p>Volunteer Hours</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>12</h3>
+                        <p>States Covered</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-award"></i>
+                        <h3>150+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Volunteer -->
+        <section class="why-volunteer">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why Volunteer With Us?</h2>
+                    <p>Make a meaningful impact while gaining valuable experience</p>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Make a Difference</h3>
+                        <p>Contribute directly to preserving cultural heritage and biodiversity</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Learn & Grow</h3>
+                        <p>Gain hands-on experience in conservation and heritage management</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Build Networks</h3>
+                        <p>Connect with professionals, researchers, and fellow volunteers</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>Get Certified</h3>
+                        <p>Receive certificates and recognition for your contributions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteer Opportunities -->
+        <section class="opportunities-section" id="opportunities">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Current Opportunities</h2>
+                    <p>Find the perfect volunteer role for your skills and interests</p>
+                </div>
+                <div class="opportunity-filters">
+                    <button class="filter-btn active" data-filter="all">All Roles</button>
+                    <button class="filter-btn" data-filter="field">Field Work</button>
+                    <button class="filter-btn" data-filter="digital">Digital/Remote</button>
+                    <button class="filter-btn" data-filter="research">Research</button>
+                    <button class="filter-btn" data-filter="education">Education</button>
+                    <button class="filter-btn" data-filter="skilled">Skilled Professional</button>
+                </div>
+                <div class="opportunities-grid">
+                    <div class="opportunity-card" data-category="field">
+                        <div class="opportunity-header">
+                            <h3>Field Conservation Assistant</h3>
+                            <span class="opportunity-type">Field Work</span>
+                        </div>
+                        <p class="opportunity-location"><i class="fas fa-map-marker-alt"></i> Kano State</p>
+                        <p class="opportunity-desc">Assist in field conservation activities including site documentation, artifact handling, and community engagement.</p>
+                        <div class="opportunity-details">
+                            <span><i class="fas fa-clock"></i> 20 hrs/week</span>
+                            <span><i class="fas fa-calendar"></i> 6 months</span>
+                            <span><i class="fas fa-user-friends"></i> 5 openings</span>
+                        </div>
+                        <div class="opportunity-skills">
+                            <span class="skill-tag">Field Work</span>
+                            <span class="skill-tag">Documentation</span>
+                            <span class="skill-tag">Community Engagement</span>
+                        </div>
+                        <button class="btn-apply" data-role="field-conservation">Apply Now</button>
+                    </div>
+                    <div class="opportunity-card" data-category="digital">
+                        <div class="opportunity-header">
+                            <h3>Digital Archiving Volunteer</h3>
+                            <span class="opportunity-type">Digital/Remote</span>
+                        </div>
+                        <p class="opportunity-location"><i class="fas fa-map-marker-alt"></i> Remote</p>
+                        <p class="opportunity-desc">Digitize historical documents, create metadata, and organize digital collections.</p>
+                        <div class="opportunity-details">
+                            <span><i class="fas fa-clock"></i> Flexible</span>
+                            <span><i class="fas fa-calendar"></i> 3 months minimum</span>
+                            <span><i class="fas fa-user-friends"></i> 10 openings</span>
+                        </div>
+                        <div class="opportunity-skills">
+                            <span class="skill-tag">Digital Skills</span>
+                            <span class="skill-tag">Attention to Detail</span>
+                            <span class="skill-tag">Organization</span>
+                        </div>
+                        <button class="btn-apply" data-role="digital-archiving">Apply Now</button>
+                    </div>
+                    <div class="opportunity-card" data-category="research">
+                        <div class="opportunity-header">
+                            <h3>Research Assistant</h3>
+                            <span class="opportunity-type">Research</span>
+                        </div>
+                        <p class="opportunity-location"><i class="fas fa-map-marker-alt"></i> Kaduna State</p>
+                        <p class="opportunity-desc">Support research projects through data collection, literature review, and analysis.</p>
+                        <div class="opportunity-details">
+                            <span><i class="fas fa-clock"></i> 15 hrs/week</span>
+                            <span><i class="fas fa-calendar"></i> 4 months</span>
+                            <span><i class="fas fa-user-friends"></i> 3 openings</span>
+                        </div>
+                        <div class="opportunity-skills">
+                            <span class="skill-tag">Research</span>
+                            <span class="skill-tag">Data Analysis</span>
+                            <span class="skill-tag">Academic Writing</span>
+                        </div>
+                        <button class="btn-apply" data-role="research-assistant">Apply Now</button>
+                    </div>
+                    <div class="opportunity-card" data-category="education">
+                        <div class="opportunity-header">
+                            <h3>Heritage Education Facilitator</h3>
+                            <span class="opportunity-type">Education</span>
+                        </div>
+                        <p class="opportunity-location"><i class="fas fa-map-marker-alt"></i> Multiple Locations</p>
+                        <p class="opportunity-desc">Conduct heritage education workshops in schools and communities.</p>
+                        <div class="opportunity-details">
+                            <span><i class="fas fa-clock"></i> 10 hrs/week</span>
+                            <span><i class="fas fa-calendar"></i> 3 months</span>
+                            <span><i class="fas fa-user-friends"></i> 8 openings</span>
+                        </div>
+                        <div class="opportunity-skills">
+                            <span class="skill-tag">Teaching</span>
+                            <span class="skill-tag">Communication</span>
+                            <span class="skill-tag">Public Speaking</span>
+                        </div>
+                        <button class="btn-apply" data-role="education-facilitator">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteer Testimonials -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Volunteer Stories</h2>
+                    <p>Hear from our amazing volunteers</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Volunteering with Arewa Conservation changed my perspective on heritage preservation. The hands-on experience was invaluable."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Aisha Mohammed</h4>
+                                <p>Field Volunteer, 2022-2023</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"As a digital archiving volunteer, I contributed to preserving historical manuscripts from my home state. It was deeply meaningful."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Yusuf Abdullahi</h4>
+                                <p>Remote Volunteer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The training and support I received as a volunteer helped me secure a full-time position in heritage conservation."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Fatima Suleiman</h4>
+                                <p>Former Volunteer, Now Staff</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteer Registration -->
+        <section class="registration-section">
+            <div class="container">
+                <div class="registration-container">
+                    <div class="registration-content">
+                        <h2>Ready to Make a Difference?</h2>
+                        <p>Join our volunteer community and contribute to preserving Northern Nigeria's heritage.</p>
+                        <div class="registration-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>Create Account</h3>
+                                    <p>Register for a volunteer account</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>Complete Profile</h3>
+                                    <p>Tell us about your skills and interests</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>Apply for Roles</h3>
+                                    <p>Browse and apply for volunteer opportunities</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h3>Get Started</h3>
+                                    <p>Begin your volunteer journey after approval</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="registration-buttons">
+                            <a href="register.html?type=volunteer" class="btn-primary">Register as Volunteer</a>
+                            <a href="login.html" class="btn-secondary">Volunteer Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Common questions about volunteering</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What are the requirements to volunteer?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Requirements vary by role. Most positions require: minimum age of 18 (16 for some roles with parental consent), commitment to the volunteer period, relevant skills or willingness to learn, and passion for heritage conservation. Some specialized roles may require specific qualifications.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Can I volunteer remotely?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! We have several remote volunteering opportunities including digital archiving, research assistance, content creation, translation, and social media management. These roles allow you to contribute from anywhere.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Do you provide training?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, all volunteers receive orientation and role-specific training. We also offer ongoing learning opportunities through workshops, webinars, and mentorship programs.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Are there benefits for volunteers?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Volunteers receive certificates of participation, letters of recommendation, skill development opportunities, networking events, and in some cases, transportation or meal allowances for field work.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Arewa Conservation</h3>
+                <p>Preserving Northern Nigeria's cultural and natural heritage through innovation and community engagement.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="digital-library.html">Digital Library</a></li>
+                    <li><a href="conservation-projects.html">Projects</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Volunteer Resources</h4>
+                <ul>
+                    <li><a href="volunteer.html">Volunteer Portal</a></li>
+                    <li><a href="training.html">Training Materials</a></li>
+                    <li><a href="opportunities.html">Opportunities</a></li>
+                    <li><a href="faq.html">Volunteer FAQ</a></li>
+                    <li><a href="testimonials.html">Volunteer Stories</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Volunteer Team</h4>
+                <p><i class="fas fa-envelope"></i> volunteer@arewaconservation.org</p>
+                <p><i class="fas fa-phone"></i> +234 800 123 4567 ext. 3</p>
+                <p><i class="fas fa-clock"></i> Mon-Fri: 9am-5pm</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Arewa Conservation Platform. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="security-center.html">Security Center</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Modal -->
+    <div class="modal" id="applicationModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Volunteer Application</h3>
+            <form id="volunteerApplicationForm">
+                <input type="hidden" id="appliedRole">
+                <div class="form-group">
+                    <label for="applicantName">Full Name *</label>
+                    <input type="text" id="applicantName" required>
+                </div>
+                <div class="form-group">
+                    <label for="applicantEmail">Email *</label>
+                    <input type="email" id="applicantEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="applicantPhone">Phone Number *</label>
+                    <input type="tel" id="applicantPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="applicantLocation">Location *</label>
+                    <input type="text" id="applicantLocation" required>
+                </div>
+                <div class="form-group">
+                    <label for="applicantBackground">Background/Experience *</label>
+                    <textarea id="applicantBackground" rows="4" required placeholder="Tell us about your relevant experience, skills, and why you want to volunteer..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="availability">Availability *</label>
+                    <select id="availability" required>
+                        <option value="">Select availability</option>
+                        <option value="full-time">Full-time</option>
+                        <option value="part-time">Part-time</option>
+                        <option value="weekends">Weekends Only</option>
+                        <option value="flexible">Flexible</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="applicantCV">Upload CV/Resume</label>
+                    <input type="file" id="applicantCV" accept=".pdf,.doc,.docx">
+                </div>
+                <button type="submit" class="btn-primary">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/volunteer.js"></script>
+</body>
+</html>
